@@ -23,7 +23,7 @@ type ThemeContextProviderProps = {
 export const ThemeContextProvider: React.FC<ThemeContextProviderProps> = ({
   children,
 }) => {
-  const [mode, setMode] = useState<ThemesModes>("defaultTheme");
+  const [mode, setMode] = useState<ThemesModes>("darkTheme");
 
   const changeTheme = useCallback((m: ThemesModes) => setMode(m), []);
 

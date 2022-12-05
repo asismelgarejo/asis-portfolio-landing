@@ -5,7 +5,8 @@ import { CustomAppBar, Menu, Menus, CustomToolbar } from "./MainHeader.styled";
 export const MainHeader = () => {
   return (
     <>
-      <AppBar>
+      <CustomAppBar position="fixed" scrolled>
+        <Box className="Background"/>
         <CustomToolbar>
           <Stack spacing={1} direction="row">
             <LogoDevIcon />
@@ -16,7 +17,7 @@ export const MainHeader = () => {
             <Menu component={Typography} active={false}>Blog</Menu>
           </Menus>
         </CustomToolbar>
-      </AppBar>
+      </CustomAppBar>
       <Toolbar />
     </>
   );

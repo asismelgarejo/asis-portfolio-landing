@@ -1,17 +1,26 @@
-import { AppBar, Box, styled, BoxProps } from "@mui/material";
+import { AppBar, Box, styled, BoxProps, AppBarProps } from "@mui/material";
 import { template } from "src/toolbox";
 
-export const CustomAppBar = styled(AppBar)(({ theme }) => ({
-  width: 50,
-  minHeight: 200,
-  background: theme.palette.primary.main,
+type CustomAppBar = AppBarProps & { scrolled: boolean };
+export const CustomAppBar = styled(AppBar, {
+  shouldForwardProp: (prop) => prop !== "scrolled",
+})<CustomAppBar>(({ theme, scrolled }) => ({
   alignItems: "center",
   justifyContent: "center",
+  width: "100%",
+  height: "auto",
+  backdropFilter: "blur(15px);",
+  ...(scrolled
+    ? {
+        background: "rgba(41,41,41,.3)",
+      }
+    : {}),
 }));
 export const CustomToolbar = styled(Box)(({ theme }) => ({
   height: "70px",
   display: "flex",
   alignItems: "center",
+  width: "100%",
   ...template.paddings,
 }));
 
