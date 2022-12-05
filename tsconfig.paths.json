@@ -4,6 +4,7 @@
     "paths": {
       "@components/*": ["src/components/*"],
       "@contexts/*": ["src/contexts/*"],
+      "@mockups/*": ["src/mockups/*"]
     }
   }
 }

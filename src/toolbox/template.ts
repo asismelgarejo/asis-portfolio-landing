@@ -41,23 +41,29 @@ class Template {
   set pT(s: number) {
     this.paddingTop = s;
   }
+  setAll() {
+    this.paddingTop = this.size;
+    this.paddingRight = this.size;
+    this.paddingBottom = this.size;
+    this.paddingLeft = this.size;
+  }
   get pR() {
     return this.paddingTop;
   }
   set pR(s: number) {
-    this.paddingTop = s;
+    this.paddingRight = s;
   }
   get pB() {
     return this.paddingTop;
   }
   set pB(s: number) {
-    this.paddingTop = s;
+    this.paddingBottom = s;
   }
   get pL() {
     return this.paddingTop;
   }
   set pL(s: number) {
-    this.paddingTop = s;
+    this.paddingLeft = s;
   }
 }
 export const template = new Template();
