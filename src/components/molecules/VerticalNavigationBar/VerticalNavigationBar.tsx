@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Card, IconButton } from "@mui/material";
+import {Card, IconButton } from "@mui/material";
 import { motion } from "framer-motion";
 import {
   NavigationBar,
@@ -10,49 +10,16 @@ import {
 } from "./VerticalNavigationBar.styled";
 import {
   Settings as SettingsIcon,
-  AccountCircle as UserIcon,
-  School as SchoolIcon,
-  BusinessCenter as BagIcon,
-  Code as CodeIcon,
-  PermContactCalendar as ContactIcon,
 } from "@mui/icons-material";
 import { v4 as uuidv4 } from "uuid";
 import { useSettingContext } from "src/contexts/SettingSidebarContext";
+import Link from "next/link";
+import { LINKS } from "@mockups/links";
+import { getTotalOffset, screenScrollTo } from "@toolbox/helpers";
 export const VerticalNavigationBar = () => {
   const [activeMenuId, setActiveMenuId] = useState("");
   const { setOpen } = useSettingContext();
-  const [menus] = useState([
-    {
-      _id: uuidv4(),
-      name: "About me",
-      Icon: UserIcon,
-    },
-    {
-      _id: uuidv4(),
-      name: "Education & Certifications",
-      Icon: SchoolIcon,
-    },
-    {
-      _id: uuidv4(),
-      name: "Experience",
-      Icon: BagIcon,
-    },
-    {
-      _id: uuidv4(),
-      name: "Skills",
-      Icon: CodeIcon,
-    },
-    {
-      _id: uuidv4(),
-      name: "Projects",
-      Icon: BagIcon,
-    },
-    {
-      _id: uuidv4(),
-      name: "Contact",
-      Icon: ContactIcon,
-    },
-  ]);
+  const [menus] = useState(LINKS);
   return (
     <Container>
       <NavigationBar component={Card}>
@@ -66,10 +33,13 @@ export const VerticalNavigationBar = () => {
               placement="right"
             >
               <IconButton
+                component={Link}
+                href={`#${m.url}`}
                 sx={{ fontSize: "inherit" }}
                 onClick={() => {
                   if (activeMenuId === m._id) setActiveMenuId("");
                   else setActiveMenuId(m._id);
+                  // screenScrollTo(getTotalOffset("about-me"))
                 }}
               >
                 <Icon className="Icon" sx={{ fontSize: "inherit" }} />

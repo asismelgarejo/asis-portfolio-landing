@@ -1,4 +1,6 @@
 import { Divider, Typography } from "@mui/material";
+// import { getTotalOffset, screenScrollTo } from "@toolbox/helpers";
+import Link from "next/link";
 import React from "react";
 import { LINKS, SOCIAL_NETWORKS } from "src/mockups";
 import { Container, SocialNetwork } from "./MainFooter.styled";
@@ -9,19 +11,21 @@ export const MainFooter = () => {
       <Typography className="Logo" variant="h2">
         Asis Melgarejo
       </Typography>
-      <Typography component="p" variant="h5" className="Links">
+      <Typography component="div" variant="h5" className="Links">
         {LINKS.map((l) => (
           <Typography
-            component="span"
             variant="h6"
             className="Link"
             key={l._id}
+            // onClick={() => screenScrollTo(getTotalOffset(l._id))}
+            component={Link}
+            href={`#${l.url}`}
           >
             {l.name}
           </Typography>
         ))}
       </Typography>
-      <Typography component="p" variant="h5" className="SocialNetworks">
+      <Typography component="div" variant="h5" className="SocialNetworks">
         {SOCIAL_NETWORKS.map(({ Icon, ...i }) => (
           <SocialNetwork key={i._id}>
             <Icon className="Item" />

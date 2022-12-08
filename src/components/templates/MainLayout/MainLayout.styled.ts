@@ -10,6 +10,6 @@ export const Children = styled(Box)<BoxProps>(({ theme }) => ({
   display: "grid",
   gridTemplateColumns: "auto auto",
   gridAutoRows: "auto",
-  columnGap: "10px",
+  columnGap: "40px",
   ...template.paddings,
 }));

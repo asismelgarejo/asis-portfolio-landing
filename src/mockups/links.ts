@@ -1,27 +1,56 @@
 import { v4 as uuidv4 } from "uuid";
-export const LINKS = [
+import {
+  Settings as SettingsIcon,
+  AccountCircle as UserIcon,
+  School as SchoolIcon,
+  BusinessCenter as BagIcon,
+  Code as CodeIcon,
+  PermContactCalendar as ContactIcon,
+} from "@mui/icons-material";
+import React from "react";
+
+interface Link {
+  _id: string;
+  name: string;
+  Icon: any;
+  url: string;
+}
+
+export const LINKS: Link[] = [
   {
+    _id: uuidv4(),
     name: "About me",
-    _id: uuidv4(),
+    Icon: UserIcon,
+    url: "about-me",
   },
   {
+    _id: uuidv4(),
     name: "Education & Certifications",
-    _id: uuidv4(),
+    Icon: SchoolIcon,
+    url: "education-and-certifications",
   },
   {
+    _id: uuidv4(),
     name: "Experience",
-    _id: uuidv4(),
+    Icon: BagIcon,
+    url: "experience",
   },
   {
+    _id: uuidv4(),
     name: "Skills",
-    _id: uuidv4(),
+    Icon: CodeIcon,
+    url: "skills",
   },
   {
+    _id: uuidv4(),
     name: "Projects",
-    _id: uuidv4(),
+    Icon: BagIcon,
+    url: "projects",
   },
   {
-    name: "Contact",
     _id: uuidv4(),
+    name: "Contact",
+    Icon: ContactIcon,
+    url: "contact",
   },
 ];
