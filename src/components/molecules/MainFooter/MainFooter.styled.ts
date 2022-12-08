@@ -8,8 +8,8 @@ import {
 import { template } from "src/toolbox";
 
 template.setAll();
-template.pL = 0;
-template.pR = 0;
+// template.pL = 0;
+// template.pR = 0;
 export const Container = styled(Box, {
   shouldForwardProp: (prop) => prop !== "scrolled",
 })<BoxProps>(({ theme }) => ({
@@ -30,7 +30,7 @@ export const Container = styled(Box, {
     margin: "20px 0",
     display: "flex",
     maxWidth: "500px",
-    fontSize: "4em",
+    fontSize: "1em",
   },
   ".Copyright": {
     margin: "2em 0 0",
@@ -42,11 +42,12 @@ export const SocialNetwork = styled(
   {}
 )<TypographyProps>(({ theme }) => ({
   margin: "0 20px",
-  width: "60px",
-  height: "60px",
+  width: "3.75em",
+  height: "3.75em",
   alignItems: "center",
   justifyContent: "center",
   display: "flex",
+  fontSize: "inherit",
   background: theme.palette.common.white,
   borderRadius: "50%",
   ".Item": {

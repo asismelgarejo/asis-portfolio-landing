@@ -9,6 +9,8 @@ export default function Index() {
     <div>
       <MainLayout>
         <Home />
+        <Home />
+        <Home />
       </MainLayout>
     </div>
   );

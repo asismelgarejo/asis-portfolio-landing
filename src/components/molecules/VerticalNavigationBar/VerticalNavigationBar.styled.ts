@@ -1,30 +1,41 @@
-import { Box, BoxProps, styled } from "@mui/material";
+import { Box, Tooltip, BoxProps, styled, TooltipProps } from "@mui/material";
 import { template } from "src/toolbox";
 
 export const Container = styled(Box)(({ theme }) => ({
-  width: 50,
+  position: "sticky",
+  left: 0,
+  top: 80,
+  bottom: 0,
+  height: "calc(100vh - 80px)",
+  display: "flex",
+  alignItems: "center",
+  gridColumn: "1 / 2",
+  gridRow: "1 / -1",
+}));
+export const NavigationBar = styled(Box)(({ theme }) => ({
+  fontSize: "1.3em",
+  width: "3.125em",
   // minHeight: 200,
   background: theme.palette.grey[300],
-  position: "fixed",
   display: "grid",
   gridTemplateColumns: "1fr",
-  gridTemplateRows: "auto 50px",
+  gridTemplateRows: "auto 3.125em",
   rowGap: "1px",
   margin: "auto 0",
-  left: template.gSize,
-  bottom: "25%",
-  alignItems: "center",
   padding: 0,
-  ".Setting": {
-    background: theme.palette.primary.dark,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    height: "100%",
-    width: "100%",
+  alignItems: "center",
+  ".Icon": {
+    fontSize: "1.5em",
   },
 }));
-
+export const Setting = styled(Box)(({ theme }) => ({
+  background: theme.palette.primary.dark,
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  height: "100%",
+  width: "100%",
+}));
 export const Menus = styled(Box)(({ theme }) => ({
   display: "flex",
   justifyContent: "space-evenly",
@@ -33,17 +44,19 @@ export const Menus = styled(Box)(({ theme }) => ({
   padding: ".5em 0",
   background: theme.palette.primary.dark,
   height: "auto",
+  fontSize: "inherit",
 }));
 
-type MenuProps = BoxProps & {
+type MenuProps = TooltipProps & {
   active: boolean;
 };
 
-export const Menu = styled(Box, {
+export const Menu = styled(Tooltip, {
   shouldForwardProp: (prop) => prop !== "active",
 })<MenuProps>(({ theme, active }) => ({
   background: theme.palette.background.paper,
   borderRadius: "50%",
+  fontSize: "inherit",
   ...(active
     ? {
         boxShadow: `0 0 2px 3px ${theme.palette.secondary.main}`,

@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import { Box, Card, IconButton } from "@mui/material";
-import { Container, Menus, Menu } from "./VerticalNavigationBar.styled";
+import { motion } from "framer-motion";
+import {
+  NavigationBar,
+  Container,
+  Setting,
+  Menus,
+  Menu,
+} from "./VerticalNavigationBar.styled";
 import {
   Settings as SettingsIcon,
   AccountCircle as UserIcon,
@@ -47,26 +54,40 @@ export const VerticalNavigationBar = () => {
     },
   ]);
   return (
-    <Container component={Card}>
-      <Menus>
-        {menus.map(({ Icon, ...m }) => (
-          <Menu key={m._id} className="Menu" active={m._id === activeMenuId}>
-            <IconButton
-              onClick={() => {
-                if (activeMenuId === m._id) setActiveMenuId("");
-                else setActiveMenuId(m._id);
-              }}
+    <Container>
+      <NavigationBar component={Card}>
+        <Menus>
+          {menus.map(({ Icon, ...m }) => (
+            <Menu
+              key={m._id}
+              className="Menu"
+              active={m._id === activeMenuId}
+              title={m.name}
+              placement="right"
             >
-              <Icon />
+              <IconButton
+                sx={{ fontSize: "inherit" }}
+                onClick={() => {
+                  if (activeMenuId === m._id) setActiveMenuId("");
+                  else setActiveMenuId(m._id);
+                }}
+              >
+                <Icon className="Icon" sx={{ fontSize: "inherit" }} />
+              </IconButton>
+            </Menu>
+          ))}
+        </Menus>
+        <Setting>
+          <motion.div whileHover={{ rotate: 360, scale: 1.1 }}>
+            <IconButton
+              onClick={() => setOpen(true)}
+              sx={{ fontSize: "inherit" }}
+            >
+              <SettingsIcon className="Icon" />
             </IconButton>
-          </Menu>
-        ))}
-      </Menus>
-      <Box className="Setting">
-        <IconButton>
-          <SettingsIcon onClick={() => setOpen(true)} />
-        </IconButton>
-      </Box>
+          </motion.div>
+        </Setting>
+      </NavigationBar>
     </Container>
   );
 };

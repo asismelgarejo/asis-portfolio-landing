@@ -28,7 +28,7 @@ export const MainFooter = () => {
           </SocialNetwork>
         ))}
       </Typography>
-      <Divider sx={{ width: "95%" }} />
+      <Divider sx={{ width: "98%" }} />
       <Typography component="p" variant="h6" className="Copyright">
         {new Date().getFullYear()}&ensp;&copy;&ensp;All rights reserved
       </Typography>

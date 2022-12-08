@@ -5,7 +5,7 @@ import {
   VerticalNavigationBar,
 } from "@components/molecules";
 import { Box } from "@mui/material";
-import { Container } from "./MainLayout.styled";
+import { Container, Children } from "./MainLayout.styled";
 import { SettingSidebar } from "@components/organisms";
 
 type MainLayoutProps = {
@@ -14,10 +14,14 @@ type MainLayoutProps = {
 export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   return (
     <Container>
-      <MainHeader />
       <SettingSidebar />
-      <VerticalNavigationBar />
-      <Box sx={{ minHeight: "1000px" }}>{children}</Box>
+      <MainHeader />
+      <Children>
+        <VerticalNavigationBar />
+        <Box>
+        {children}
+        </Box>
+      </Children>
       <MainFooter />
     </Container>
   );

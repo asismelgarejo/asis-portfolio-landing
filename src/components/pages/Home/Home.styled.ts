@@ -7,7 +7,7 @@ export const Container = styled(Box)(({ theme }) => ({
   height: "calc(100vh - 50px)",
   gridTemplateColumns: "1fr 1fr",
   overflow: "hidden",
-  ...template.paddings,
+  // ...template.paddings,
   ".Image": {
     width: "80%",
     height: "auto",

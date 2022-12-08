@@ -1,12 +1,15 @@
 import { ThemeOptions } from "@mui/material";
+import { Roboto } from "@next/font/google";
 
+const roboto = Roboto({ weight: ["400", "700"] });
 
-
-const LogoStyles = {
-
-}
+const LogoStyles = {};
 
 export const darkTheme: ThemeOptions = {
+  typography: {
+    fontFamily: roboto.style.fontFamily,
+    fontSize: 12,
+  },
   palette: {
     mode: "dark",
     background: {
@@ -15,10 +18,11 @@ export const darkTheme: ThemeOptions = {
         "linear-gradient(180deg, rgba(53,53,101,1) 0%, rgba(30,20,80,1) 99%);",
     },
     common: {
-			black: "#fff",
-			white: "#666",
-		},
+      black: "#fff",
+      white: "#666",
+    },
   },
+
   components: {
     MuiAppBar: {
       styleOverrides: {
@@ -30,12 +34,12 @@ export const darkTheme: ThemeOptions = {
     MuiTypography: {
       styleOverrides: {
         root: {
-          "&.Logo":{
+          "&.Logo": {
             fontSize: "50px",
-            color: "#fff"
-          }
+            color: "#fff",
+          },
         },
       },
-    }
+    },
   },
 };
