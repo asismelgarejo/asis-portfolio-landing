@@ -1,7 +1,7 @@
 import { EducationAndCertification } from "@api//models";
 import { HolderAnchor } from "@components/atoms";
 import { EDUCATION_AND_CERTIFICATIONS } from "@mockups/education_and_certications";
-import { Box, Card, Stack, Typography } from "@mui/material";
+import { Box, Card, Divider, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 import { Container, Docs, CardDoc } from "./EducationAndCertifications.styled";
@@ -65,11 +65,12 @@ const EducationAndCertifications = () => {
     },
   };
   return (
-    <Box ref={containerRef}>
+    <Container ref={containerRef}>
       <HolderAnchor _id="education-and-certifications" />
-      <Typography component="h2" variant="h2">
+      <Typography component="h2" variant="h2" className="TitleSection">
         Education & Certifications
       </Typography>
+      <Divider/>
       <Docs
         component={motion.div}
         initial="loading"
@@ -86,7 +87,7 @@ const EducationAndCertifications = () => {
           </motion.div>
         ))}
       </Docs>
-    </Box>
+    </Container>
   );
 };
 export default EducationAndCertifications;

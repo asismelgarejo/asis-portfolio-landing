@@ -1,21 +1,22 @@
 import { HolderAnchor } from "@components/atoms";
 import { useActiveSectionContext } from "@contexts/ActiveSectionContext";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Divider, Stack, Typography } from "@mui/material";
 import { useActiveSection } from "@toolbox/hooks";
 import Image from "next/image";
 import React from "react";
-import { Container } from "./AboutMe.styled";
+import { Container, ContainerContent } from "./AboutMe.styled";
 
 const AboutMe = () => {
   const { containerRef } = useActiveSection("about-me");
 
   return (
-    <Box ref={containerRef}>
+    <Container ref={containerRef} >
       <HolderAnchor _id="about-me" />
-      <Typography component="h2" variant="h2">
+      <Typography component="h2" variant="h2" className="Title">
         About me
       </Typography>
-      <Container>
+      <Divider/>
+      <ContainerContent>
         <Box className="Content" component={Stack} spacing={2}>
           <Typography component="h3" variant="h3">
             I'm a software engineer specilized in web and mobile development
@@ -43,8 +44,8 @@ const AboutMe = () => {
           height={800}
           className="Image"
         />
-      </Container>
-    </Box>
+      </ContainerContent>
+    </Container>
   );
 };
 export default AboutMe;

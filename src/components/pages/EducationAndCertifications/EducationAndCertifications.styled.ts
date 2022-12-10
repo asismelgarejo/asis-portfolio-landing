@@ -1,8 +1,16 @@
 import { Box, BoxProps, Card, CardProps, styled } from "@mui/material";
+import { WebsiteMeasureBuilder } from "@toolbox/helpers";
 
+const measures = new WebsiteMeasureBuilder().mB().mT();
+const measuresTitle = new WebsiteMeasureBuilder().mTitleB();
+const measuresTitleT = new WebsiteMeasureBuilder().mTitleT();
+const measuresHeader = new WebsiteMeasureBuilder().headerHeight();
 export const Container = styled(Box)<BoxProps>(({ theme }) => ({
-  display: "grid",
-  height: "calc(100vh - 80px)",
+  height: `calc(100vh - ${measuresHeader.build().height}px)`,
+  ...measures.build(),
+  ".TitleSection":{
+    ...measuresTitle.build()
+  }
 }));
 export const Docs = styled(Box)<any>(({ theme }) => ({
   display: "grid",
@@ -10,7 +18,7 @@ export const Docs = styled(Box)<any>(({ theme }) => ({
   gridTemplateColumns: "repeat(3, 1fr minmax(40px, auto)) 1fr",
   gridTemplateRows: "minmax(80px, auto)",
   rowGap: "40px",
-  marginTop: "40px",
+  ...measuresTitleT.build(),
   ".CardDocument:nth-child(4n+1)":{
     gridColumn: "1 / 2"
   },

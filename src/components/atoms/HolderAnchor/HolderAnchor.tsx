@@ -1,4 +1,6 @@
 import React from "react";
+import { WebsiteMeasureBuilder } from "@toolbox/helpers";
+const headeheight = new WebsiteMeasureBuilder().headerHeight().build().height as number;
 
 export const HolderAnchor: React.FC<{_id: string}> = ({_id}) => {
   return (
@@ -11,7 +13,7 @@ export const HolderAnchor: React.FC<{_id: string}> = ({_id}) => {
         id={_id}
         style={{
           position: "absolute",
-          top: "-120px",
+          top: `-${headeheight+40}px`,
         }}
       ></span>
     </div>

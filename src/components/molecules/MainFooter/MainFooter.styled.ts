@@ -5,11 +5,8 @@ import {
   TypographyProps,
   Typography,
 } from "@mui/material";
-import { template } from "src/toolbox";
-
-// template.setAll();
-// template.pL = 0;
-// template.pR = 0;
+import { WebsiteMeasureBuilder } from "@toolbox/helpers";
+const measures = new WebsiteMeasureBuilder().pB().pT().pL().pR();
 export const Container = styled(Box, {
   shouldForwardProp: (prop) => prop !== "scrolled",
 })<BoxProps>(({ theme }) => ({
@@ -19,9 +16,7 @@ export const Container = styled(Box, {
   flexDirection: "column",
   minHeight: "180px",
   alignItems: "center",
-  ...template.paddings,
-  paddingTop: "1em",
-  paddingBottom: "1em",
+  ...measures.build(),
   ".Links": {
     margin: "1em 0",
   },

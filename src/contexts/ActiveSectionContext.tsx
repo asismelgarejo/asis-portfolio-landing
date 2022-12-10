@@ -1,5 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import { LINKS } from "@mockups/links";
+import { createContext, useContext, useState } from "react";
 
 type ActiveSection = {
   active: boolean;
@@ -22,15 +21,6 @@ export const ActiveSectionContextProvider: React.FC<
   const changeSections = (_id: string, payload: ActiveSection) => {
     setSections((prev) => ({ ...prev, [_id]: payload }));
   };
-  useEffect(() => {
-    // console.log(LINKS);
-    // console.log(
-    //   LINKS.reduce(
-    //     (p, n) => ({ ...p, [n.url]: { active: false, name: "n.url" } }),
-    //     {}
-    //   )
-    // );
-  }, []);
   return (
     <ActiveSection.Provider value={{ sections, changeSections }}>
       {children}

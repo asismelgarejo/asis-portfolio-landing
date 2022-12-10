@@ -4,7 +4,8 @@ import { LogoDev as LogoDevIcon } from "@mui/icons-material/";
 import { CustomAppBar, Menu, Menus, CustomToolbar } from "./MainHeader.styled";
 import Link from "next/link";
 import { motion, useScroll } from "framer-motion";
-
+import { WebsiteMeasureBuilder } from "@toolbox/helpers";
+const measuresHeader = new WebsiteMeasureBuilder().headerHeight();
 export const MainHeader = () => {
   const { scrollYProgress } = useScroll();
   return (
@@ -30,7 +31,7 @@ export const MainHeader = () => {
           </Menus>
         </CustomToolbar>
       </CustomAppBar>
-      <Toolbar />
+      <Toolbar sx={{...measuresHeader.build()}}/>
     </>
   );
 };

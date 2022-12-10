@@ -1,7 +1,8 @@
 import { AppBar, Box, styled, BoxProps, AppBarProps } from "@mui/material";
 import { LinkProps } from "next/link";
-import { template } from "src/toolbox";
-
+import { WebsiteMeasureBuilder } from "@toolbox/helpers";
+const measures = new WebsiteMeasureBuilder().pL().pR();
+const measuresHeader = new WebsiteMeasureBuilder().headerHeight();
 type CustomAppBar = AppBarProps & { scrolled: boolean };
 export const CustomAppBar = styled(AppBar, {
   shouldForwardProp: (prop) => prop !== "scrolled",
@@ -9,7 +10,7 @@ export const CustomAppBar = styled(AppBar, {
   alignItems: "center",
   justifyContent: "center",
   width: "100%",
-  height: "70px",
+  ...measuresHeader.build(),
   backdropFilter: "blur(15px);",
   ...(scrolled
     ? {
@@ -32,7 +33,7 @@ export const CustomToolbar = styled(Box)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   width: "100%",
-  ...template.paddings,
+  ...measures.build(),
 }));
 
 export const Menus = styled(Box)(({ theme }) => ({

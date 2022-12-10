@@ -1,13 +1,11 @@
 import { Box, styled } from "@mui/material";
-import { template } from "src/toolbox";
-
+import { WebsiteMeasureBuilder } from "@toolbox/helpers";
+const measuresHeader = new WebsiteMeasureBuilder().headerHeight();
 export const Container = styled(Box)(({ theme }) => ({
   display: "grid",
-//   width: "100%",
-  height: "calc(100vh - 50px)",
+  height: `calc(100vh - ${measuresHeader.build().height}px)`,
   gridTemplateColumns: "1fr 1fr",
   overflow: "hidden",
-  // ...template.paddings,
   ".Image": {
     width: "80%",
     height: "auto",
