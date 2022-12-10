@@ -1,16 +1,13 @@
-import '../../styles/globals.css'
+import "../../styles/globals.css";
 import type { AppProps } from "next/app";
-import { ThemeContextProvider } from "src/contexts";
-import { SettingContextProvider } from "src/contexts/SettingSidebarContext";
+import AllContexts from "src/contexts";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <ThemeContextProvider>
-        <SettingContextProvider>
-          <Component {...pageProps} />
-        </SettingContextProvider>
-      </ThemeContextProvider>
+      <AllContexts>
+        <Component {...pageProps} />
+      </AllContexts>
     </>
   );
 }

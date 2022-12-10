@@ -6,6 +6,8 @@
       "@contexts/*": ["src/contexts/*"],
       "@mockups/*": ["src/mockups/*"],
       "@toolbox/*": ["src/toolbox/*"],
+      "@api/*": ["src/api*"],
+      "@models/*": ["src/api/models/*"],
     }
   }
 }

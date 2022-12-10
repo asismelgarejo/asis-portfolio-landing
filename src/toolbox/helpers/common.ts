@@ -9,11 +9,11 @@ const getParentOffset = (
   if (parent) return getParentOffset(parent, parent.offsetTop + off);
   return off;
 };
-export const getTotalOffset = (idEl: string) => {
-  const el = document.getElementById(idEl);
+export const getTotalOffset = (el: HTMLElement) => {
   return getParentOffset(el, el?.offsetTop);
 };
-
-export const screenScrollTo = (top: number) => {
-  window.scrollTo({ top });
+export const getElementBoundaries = (el: HTMLElement) => {
+  const top = getTotalOffset(el);
+  const bottom = top + el.offsetHeight; 
+  return {top, bottom };
 };

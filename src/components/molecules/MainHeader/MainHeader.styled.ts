@@ -1,4 +1,5 @@
 import { AppBar, Box, styled, BoxProps, AppBarProps } from "@mui/material";
+import { LinkProps } from "next/link";
 import { template } from "src/toolbox";
 
 type CustomAppBar = AppBarProps & { scrolled: boolean };
@@ -8,13 +9,23 @@ export const CustomAppBar = styled(AppBar, {
   alignItems: "center",
   justifyContent: "center",
   width: "100%",
-  height: "auto",
+  height: "70px",
   backdropFilter: "blur(15px);",
   ...(scrolled
     ? {
         background: "rgba(41,41,41,.3)",
       }
     : {}),
+    
+  ".progress-bar": {
+    position: "fixed",
+    top: "0",
+    left: "0",
+    right: "0",
+    height: "10px",
+    background: theme.palette.error.main,
+    transformOrigin: "0%",
+  },
 }));
 export const CustomToolbar = styled(Box)(({ theme }) => ({
   height: "70px",
@@ -33,7 +44,7 @@ export const Menus = styled(Box)(({ theme }) => ({
 
 type MenuProps = BoxProps & {
   active: boolean;
-};
+} & LinkProps;
 
 export const Menu = styled(Box, {
   shouldForwardProp: (prop) => prop !== "active",

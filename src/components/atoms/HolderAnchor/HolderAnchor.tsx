@@ -2,7 +2,7 @@ import React from "react";
 
 export const HolderAnchor: React.FC<{_id: string}> = ({_id}) => {
   return (
-    <h3
+    <div
       style={{
         position: "relative",
       }}
@@ -14,6 +14,6 @@ export const HolderAnchor: React.FC<{_id: string}> = ({_id}) => {
           top: "-120px",
         }}
       ></span>
-    </h3>
+    </div>
   );
 };

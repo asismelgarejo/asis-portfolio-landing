@@ -1,12 +1,16 @@
 import { HolderAnchor } from "@components/atoms";
+import { useActiveSectionContext } from "@contexts/ActiveSectionContext";
 import { Box, Stack, Typography } from "@mui/material";
+import { useActiveSection } from "@toolbox/hooks";
 import Image from "next/image";
 import React from "react";
 import { Container } from "./AboutMe.styled";
 
 const AboutMe = () => {
+  const { containerRef } = useActiveSection("about-me");
+
   return (
-    <Box>
+    <Box ref={containerRef}>
       <HolderAnchor _id="about-me" />
       <Typography component="h2" variant="h2">
         About me

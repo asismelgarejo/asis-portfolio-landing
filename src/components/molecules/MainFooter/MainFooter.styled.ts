@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 import { template } from "src/toolbox";
 
-template.setAll();
+// template.setAll();
 // template.pL = 0;
 // template.pR = 0;
 export const Container = styled(Box, {
@@ -20,6 +20,8 @@ export const Container = styled(Box, {
   minHeight: "180px",
   alignItems: "center",
   ...template.paddings,
+  paddingTop: "1em",
+  paddingBottom: "1em",
   ".Links": {
     margin: "1em 0",
   },

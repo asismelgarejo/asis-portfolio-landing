@@ -16,11 +16,9 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
     <Container>
       <SettingSidebar />
       <MainHeader />
-      <Children>
+      <Children data-no-count-offset>
         <VerticalNavigationBar />
-        <Box>
-        {children}
-        </Box>
+        <Box>{children}</Box>
       </Children>
       <MainFooter />
     </Container>

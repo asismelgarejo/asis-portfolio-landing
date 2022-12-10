@@ -1,6 +1,6 @@
 import { Box, Button } from '@mui/material'
 import React from 'react'
-import { useThemeContext } from 'src/contexts';
+import { useThemeContext } from 'src/contexts/ThemeContext';
 
 export const ThemePicker = () => {
     const {mode, changeTheme} = useThemeContext();
