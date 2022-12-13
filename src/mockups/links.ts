@@ -33,7 +33,7 @@ export const LINKS: Link[] = [
     _id: uuidv4(),
     name: "Experience",
     Icon: BagIcon,
-    url: "experience",
+    url: "work-experience",
   },
   {
     _id: uuidv4(),

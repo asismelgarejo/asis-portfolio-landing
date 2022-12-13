@@ -4,6 +4,7 @@ import { MainLayout } from "@components/templates";
 import { Home } from "@components/pages";
 import AboutMe from "@components/pages/AboutMe/AboutMe";
 import EducationAndCertifications from "@components/pages/EducationAndCertifications/EducationAndCertifications";
+import WorkExperience from "@components/pages/WorkExperience/WorkExperience";
 // import styles from '../styles/Home.module.css'
 
 export default function Index() {
@@ -13,6 +14,7 @@ export default function Index() {
         <Home />
         <AboutMe />
         <EducationAndCertifications />
+        <WorkExperience />
       </MainLayout>
     </div>
   );
