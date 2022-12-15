@@ -6,71 +6,61 @@ export const WORK_EXPERIENCES: WorkExperience[] = [
   {
     _id: uuidv4(),
     job: {
-      role: "Full Stack Developer",
+      _id: uuidv4(),
+      role: ["Full Stack Developer"],
       startDate: new Date(),
       endDate: new Date(),
       description: ` Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt.`,
     },
     company: {
-      image: "/images/2myr.png",
+      _id: uuidv4(),
+      image: {
+        url: "/images/2myr.png",
+        caption: ""
+      },
       name: "2MYR S.A.C",
+      website: "",
     },
   },
   {
     _id: uuidv4(),
     job: {
-      role: "Full Stack Developer",
+      _id: uuidv4(),
+      role: ["Full Stack Developer"],
       startDate: new Date(),
       endDate: new Date(),
       description: ` Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt.`,
     },
     company: {
-      image: "/images/2myr.png",
+      _id: uuidv4(),
+      image: {
+        url: "/images/2myr.png",
+        caption: ""
+      },
       name: "2MYR S.A.C",
+      website: "",
     },
   },
   {
     _id: uuidv4(),
     job: {
-      role: "Full Stack Developer",
+      _id: uuidv4(),
+      role: ["Full Stack Developer"],
       startDate: new Date(),
       endDate: new Date(),
       description: ` Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt.`,
     },
     company: {
-      image: "/images/2myr.png",
+      _id: uuidv4(),
+      image: {
+        url: "/images/2myr.png",
+        caption: ""
+      },
       name: "2MYR S.A.C",
-    },
-  },
-  {
-    _id: uuidv4(),
-    job: {
-      role: "Full Stack Developer",
-      startDate: new Date(),
-      endDate: new Date(),
-      description: ` Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt.`,
-    },
-    company: {
-      image: "/images/2myr.png",
-      name: "2MYR S.A.C",
-    },
-  },
-  {
-    _id: uuidv4(),
-    job: {
-      role: "Full Stack Developer",
-      startDate: new Date(),
-      endDate: new Date(),
-      description: ` Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt.`,
-    },
-    company: {
-      image: "/images/2myr.png",
-      name: "2MYR S.A.C",
+      website: "",
     },
   },
 ];

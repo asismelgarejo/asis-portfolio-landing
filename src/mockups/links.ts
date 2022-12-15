@@ -7,7 +7,6 @@ import {
   Code as CodeIcon,
   PermContactCalendar as ContactIcon,
 } from "@mui/icons-material";
-import React from "react";
 
 interface Link {
   _id: string;

@@ -17,7 +17,7 @@ export const Timeline = () => {
             alignItems="center"
             justifyContent="center"
           >
-            <Image className="Image" alt={c.company.name} src={c.company.image} width={100} height={100}/>
+            <Image className="Image" alt={c.company.image.caption} src={c.company.image.url} width={100} height={100}/>
             <Typography variant="h6" component="h6">
               {c.company.name}
             </Typography>
