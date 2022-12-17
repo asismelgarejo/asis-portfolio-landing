@@ -4,7 +4,7 @@
     "paths": {
       "@components/*": ["src/components/*"],
       "@contexts/*": ["src/contexts/*"],
-      "@mockups/*": ["src/mockups/*"],
+      "@mocks/*": ["src/mocks/*"],
       "@toolbox/*": ["src/toolbox/*"],
       "@api/*": ["src/api*"],
       "@models/*": ["src/api/models/*"],

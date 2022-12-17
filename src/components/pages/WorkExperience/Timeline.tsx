@@ -3,7 +3,7 @@ import * as format from "date-fns";
 import * as locale from "date-fns/locale";
 import { CardContainer, CardInfo, Container } from "./Timeline.styled";
 import Image from "next/image";
-import { WORK_EXPERIENCES } from "@mockups/work_experience";
+import { WORK_EXPERIENCES } from "src/mocks/work_experience";
 
 export const Timeline = () => {
   return (

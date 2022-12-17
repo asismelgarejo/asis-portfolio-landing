@@ -1,6 +1,6 @@
 import { EducationAndCertification } from "@api//models";
 import { HolderAnchor } from "@components/atoms";
-import { EDUCATION_AND_CERTIFICATIONS } from "@mockups/education_and_certications";
+import { EDUCATION_AND_CERTIFICATIONS } from "@mocks/education_and_certications";
 import { Box, Card, Divider, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";

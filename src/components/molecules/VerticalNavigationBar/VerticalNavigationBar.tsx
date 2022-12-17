@@ -11,7 +11,7 @@ import { Settings as SettingsIcon } from "@mui/icons-material";
 import { useSettingContext } from "src/contexts/SettingSidebarContext";
 import { useActiveSectionContext } from "src/contexts/ActiveSectionContext";
 import Link from "next/link";
-import { LINKS } from "@mockups/links";
+import { LINKS } from "src/mocks/links";
 
 export const VerticalNavigationBar = () => {
   const { setOpen } = useSettingContext();

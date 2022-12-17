@@ -25,22 +25,22 @@ export const CardContainer = styled(Box)(({ theme }) => ({
     width: "50%",
     border: `solid ${theme.palette.success.light}`,
   },
-  "&:nth-child(odd)": {
+  "&:nth-of-type(odd)": {
     padding: "50px 0 50px 50px",
     flexFlow: "row",
   },
-  "&:nth-child(even)": {
+  "&:nth-of-type(even)": {
     padding: "50px 50px 50px 0",
     flexFlow: "row-reverse",
   },
-  "&:nth-child(odd)::before": {
+  "&:nth-of-type(odd)::before": {
     left: "0px",
     borderWidth: "10px 0 10px 10px",
     borderRadius: "50% 0 0 50%",
     top: offset,
     bottom: "0",
   },
-  "&:nth-child(even)::before": {
+  "&:nth-of-type(even)::before": {
     right: 0,
     top: offset,
     bottom: "0",
@@ -51,11 +51,11 @@ export const CardContainer = styled(Box)(({ theme }) => ({
     borderTop: "0",
     borderTopLeftRadius: 0,
   },
-  "&:last-child:nth-child(odd):before": {
+  "&:last-child:nth-of-type(odd):before": {
     borderBottom: "0",
     borderBottomLeftRadius: 0,
   },
-  "&:last-child:nth-child(even):before": {
+  "&:last-child:nth-of-type(even):before": {
     borderBottom: "0",
     borderBottomRightRadius: 0,
   },

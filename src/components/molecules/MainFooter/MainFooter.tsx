@@ -2,7 +2,7 @@ import { Divider, Typography } from "@mui/material";
 // import { getTotalOffset, screenScrollTo } from "@toolbox/helpers";
 import Link from "next/link";
 import React from "react";
-import { LINKS, SOCIAL_NETWORKS } from "src/mockups";
+import { LINKS, SOCIAL_NETWORKS } from "src/mocks";
 import { Container, SocialNetwork } from "./MainFooter.styled";
 
 export const MainFooter = () => {

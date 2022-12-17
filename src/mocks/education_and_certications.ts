@@ -1,5 +1,4 @@
 import { v4 as uuidv4 } from "uuid";
-import React from "react";
 import { EducationAndCertification } from "@api//models";
 
 export const EDUCATION_AND_CERTIFICATIONS: EducationAndCertification[] = [

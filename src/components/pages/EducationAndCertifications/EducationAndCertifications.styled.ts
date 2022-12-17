@@ -19,16 +19,16 @@ export const Docs = styled(Box)<any>(({ theme }) => ({
   gridTemplateRows: "minmax(80px, auto)",
   rowGap: "40px",
   ...measuresTitleT.build(),
-  ".CardDocument:nth-child(4n+1)":{
+  ".CardDocument:nth-of-type(4n+1)":{
     gridColumn: "1 / 2"
   },
-  ".CardDocument:nth-child(4n+2)":{
+  ".CardDocument:nth-of-type(4n+2)":{
     gridColumn: "3 / 4"
   },
-  ".CardDocument:nth-child(4n+3)":{
+  ".CardDocument:nth-of-type(4n+3)":{
     gridColumn: "5 / 6"
   },
-  ".CardDocument:nth-child(4n+4)":{
+  ".CardDocument:nth-of-type(4n+4)":{
     gridColumn: "7 / 8"
   },
 }));

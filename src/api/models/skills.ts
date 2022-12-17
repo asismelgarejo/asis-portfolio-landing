@@ -8,6 +8,7 @@ export interface Skill {
     name:  string;
     image: Image;
     domain: number;
+    color: string;
     // experience: WorkExperience[];
     // projects: Project[]
     // certifications: EducationAndCertification[]
