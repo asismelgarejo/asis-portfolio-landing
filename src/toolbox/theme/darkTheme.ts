@@ -41,5 +41,20 @@ export const darkTheme: ThemeOptions = {
         },
       },
     },
+    MuiButton: {
+      styleOverrides: {
+        "outlined":{
+          border: "2px solid black",
+          color: "black",
+          fontWeight: 700
+        },
+        root: {
+          "&.Logo": {
+            fontSize: "50px",
+            color: "#fff",
+          },
+        },
+      },
+    },
   },
 };
