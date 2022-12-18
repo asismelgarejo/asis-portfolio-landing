@@ -62,13 +62,13 @@ export class WebsiteMeasureBuilder implements WebsiteMeasuresBuilder {
     return this;
   }
   mT(p?: number | undefined): WebsiteMeasuresBuilder {
-    if (p) this.website!.marginTop = p;
-    else this.website!.marginTop = 20;
+    if (p) this.website!.paddingTop = p;
+    else this.website!.paddingTop = 20;
     return this;
   }
   mB(p?: number | undefined): WebsiteMeasuresBuilder {
-    if (p) this.website!.marginBottom = p;
-    else this.website!.marginBottom = 20;
+    if (p) this.website!.paddingBottom = p;
+    else this.website!.paddingBottom = 20;
     return this;
   }
   mTitleB(p?: number | undefined): WebsiteMeasuresBuilder {

@@ -6,4 +6,5 @@ export interface Project {
   description: string;
   repo: string;
   image: Image;
+  _id: string;
 }

@@ -13,7 +13,11 @@ export const useActiveSection = (_id: string) => {
     return scrollY.onChange((latest) => {
       if (containerRef.current) {
         const { top, bottom } = getElementBoundaries(containerRef.current);
-        if (latest +  placeholder> top && latest + placeholder < bottom) {
+        console.log("*********************")
+        console.log("", _id)
+        console.log("bottom", bottom)
+        console.log("latest+placeholder", latest+placeholder)
+        if (latest +  placeholder > top && latest + placeholder <= bottom) {
           changeSections && changeSections(_id, { active: true, name: _id });
         } else
           changeSections && changeSections(_id, { active: false, name: _id });

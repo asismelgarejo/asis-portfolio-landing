@@ -65,7 +65,8 @@ export const ContainerSkills = styled(Box, {
   rowGap: "20px",
   ".SkillImage": {
     width: "100%",
-    height: "auto"
+    height: "auto",
+    maxWidth: "100px"
   },
 }));
 
@@ -82,7 +83,7 @@ export const SkillStats = styled(Box, {
     content: "''",
     width: `calc(100% * ${scale})`,
     height: "100%",
-    background: color,
+    background: theme.palette.info.main,
     display: "block",
   },
 }));

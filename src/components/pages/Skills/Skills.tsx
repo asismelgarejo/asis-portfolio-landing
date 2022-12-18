@@ -1,6 +1,14 @@
 import { HolderAnchor } from "@components/atoms";
 import { SKILLS } from "@mocks/skills";
-import { Box, Collapse, Divider, IconButton, Typography } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardContent,
+  Collapse,
+  Divider,
+  IconButton,
+  Typography,
+} from "@mui/material";
 import { useActiveSection } from "@toolbox/hooks";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
@@ -59,7 +67,14 @@ const Skills = () => {
                     setSkillId((prev) => (prev === s._id ? "" : s._id))
                   }
                 >
-                  <ArrowIcon sx={{ ...(s._id === skillId ? {} : {transform: "rotate(-180deg)"}), transition: "all" }} />
+                  <ArrowIcon
+                    sx={{
+                      ...(s._id === skillId
+                        ? {}
+                        : { transform: "rotate(-180deg)" }),
+                      transition: "all",
+                    }}
+                  />
                 </IconButton>
                 <Collapse in={s._id === skillId} className="Generic Collapse">
                   <Image
@@ -70,14 +85,18 @@ const Skills = () => {
                     className="SkillImage"
                   />
                 </Collapse>
-                <Collapse in={s._id === skillId} className="Generic">
-                  <Box>
+                <Collapse
+                  in={s._id === skillId}
+                  className="Generic"
+                  component={Card}
+                >
+                  <CardContent>
                     <Typography>
                       Nunc lobortis convallis orci at dapibus. Integer vehicula
                       mi in felis ultrices blandit. Donec fermentum diam nec
-                      ipsum tincidunt pharetra.{" "}
+                      ipsum tincidunt pharetra.
                     </Typography>
-                  </Box>
+                  </CardContent>
                 </Collapse>
               </React.Fragment>
             ))}
