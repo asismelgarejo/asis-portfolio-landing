@@ -15,12 +15,12 @@ export default function Index() {
     <div>
       <MainLayout>
         <Home />
-        <AboutMe />
+        {/* <AboutMe />
         <EducationAndCertifications />
         <WorkExperience />
         <Skills />
         <Projects />
-        <Contact />
+        <Contact /> */}
       </MainLayout>
     </div>
   );

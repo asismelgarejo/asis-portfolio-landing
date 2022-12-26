@@ -7,11 +7,11 @@ import { Container, SocialNetwork } from "./MainFooter.styled";
 
 export const MainFooter = () => {
   return (
-    <Container>
-      <Typography className="Logo" variant="h2">
+    <Container className="p-l p-r p-t p-b">
+      <Typography className="Logo" variant="h4" component="h5">
         Asis Melgarejo
       </Typography>
-      <Typography component="div" variant="h5" className="Links">
+      <Typography component="div" variant="h5" className="Links hide-in-xs">
         {LINKS.map((l) => (
           <Typography
             variant="h6"

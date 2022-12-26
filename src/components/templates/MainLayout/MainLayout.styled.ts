@@ -4,26 +4,37 @@ const measures = new WebsiteMeasureBuilder().pL().pR();
 
 export const Container = styled(Box)<BoxProps>(({ theme }) => ({
   backgroundImage: theme.palette.background.default,
-}));
-export const Children = styled(Box)<BoxProps>(({ theme }) => ({
-  // minHeight: "1000px",
-  position: "relative",
-  display: "grid",
-  gridTemplateColumns: "auto auto",
-  gridAutoRows: "auto",
-  columnGap: "40px",
-  ...measures.build(),
+  [theme.breakpoints.up("xs")]:{
+    "& .hide-in-xs":{
+      display: "none",
+    },
+  },
+  [theme.breakpoints.up("sm")]:{
+    "& .hide-in-xs":{
+      display: "unset",
+    },
+  },
+  // [theme.breakpoints.up("md")]:{
+  //   ".hide-in-xs":{
+  //     display: "none",
+  //   },
+  // },
+  // [theme.breakpoints.up("lg")]:{
+  //   ".hide-in-xs":{
+  //     display: "none",
+  //   },
+  // },
   ".p-l": {
-    ...getBoxModel(theme).padding.paddingLeft,
+    ...getBoxModel(theme).padding.pL().build(),
   },
   ".p-t": {
-    ...getBoxModel(theme).padding.paddingTop,
+    ...getBoxModel(theme).padding.pT().build(),
   },
   ".p-b": {
-    ...getBoxModel(theme).padding.paddingBottom,
+    ...getBoxModel(theme).padding.pB().build(),
   },
   ".p-r": {
-    ...getBoxModel(theme).padding.paddingRight,
+    ...getBoxModel(theme).padding.pR().build(),
   },
   ".m-b-t": {
     ...getBoxModel(theme).margin.marginBottomTitle,
@@ -31,4 +42,20 @@ export const Children = styled(Box)<BoxProps>(({ theme }) => ({
   ".m-t-t": {
     ...getBoxModel(theme).margin.marginTopTitle,
   },
+}));
+export const Children = styled(Box)<BoxProps>(({ theme }) => ({
+  // minHeight: "1000px",
+  position: "relative",
+  display: "grid",
+  gridTemplateColumns: "auto",
+  gridAutoRows: "auto",
+  columnGap: "40px",
+
+  [theme.breakpoints.up("md")]:{
+    gridTemplateColumns: "auto auto",
+  },
+  "&": {
+    ...getBoxModel(theme).padding.pL().pR().build(),
+  },
+
 }));

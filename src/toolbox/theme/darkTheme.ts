@@ -34,7 +34,7 @@ export const darkTheme: ThemeOptions = {
       styleOverrides: {
         root: {
           "&.Logo": {
-            fontSize: "50px",
+            // fontSize: "50px",
             color: "#fff",
           },
         },
@@ -47,9 +47,12 @@ export const darkTheme: ThemeOptions = {
           color: "black",
           fontWeight: 700
         },
+        "contained":{
+          
+        },
         root: {
           "&.Logo": {
-            fontSize: "50px",
+            // fontSize: "50px",
             color: "#fff",
           },
         },

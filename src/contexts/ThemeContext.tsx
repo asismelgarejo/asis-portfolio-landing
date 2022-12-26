@@ -28,7 +28,42 @@ export const ThemeContextProvider: React.FC<ThemeContextProviderProps> = ({
   const changeTheme = useCallback((m: ThemesModes) => setMode(m), []);
 
   const theme = useMemo(() => getTheme(mode), [mode]);
-
+  theme.typography.h2 = {
+    fontSize: "2.5em",
+    fontWeight: 500,
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "4em",
+    },
+  };
+  theme.typography.h4 = {
+    fontSize: "1.5em",
+    fontWeight: 100,
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "2em",
+      fontWeight: 400,
+    },
+  };
+  theme.typography.h5 = {
+    fontSize: "1.5em",
+    fontWeight: 100,
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "2em",
+    },
+  };
+  if (theme.components?.MuiButton) {
+    theme.components!.MuiButton = {
+      styleOverrides: {
+        contained: {
+          fontSize: "1em",
+          fontWeight: 500,
+        },
+        outlined: {
+          fontSize: "1em",
+          fontWeight: 500,
+        },
+      },
+    };
+  }
   return (
     <ThemeContext.Provider value={{ mode, changeTheme }}>
       <ThemeProvider theme={theme}>{children}</ThemeProvider>
