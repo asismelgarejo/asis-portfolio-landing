@@ -12,14 +12,14 @@ export const MainHeader = () => {
     <>
       <CustomAppBar position="fixed" scrolled>
         <Box className="Background" />
-        <CustomToolbar>
+        <CustomToolbar className="p-l p-r">
           <motion.div
             className="progress-bar"
             style={{ scaleX: scrollYProgress }}
           />
-          <Stack spacing={1} direction="row">
+          <Stack spacing={1} direction="row" alignItems="center">
             <LogoDevIcon />
-            <Typography>ASIS MELGAREJO</Typography>
+            <Typography variant="h6">ASIS MELGAREJO</Typography>
           </Stack>
           <Menus>
             <Menu active component={Link} href="/">

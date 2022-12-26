@@ -5,7 +5,8 @@ export const Container = styled(Box)(({ theme }) => ({
   display: "grid",
   minHeight: `calc(100vh - ${measuresHeader.build().height}px)`,
   gridTemplateColumns: "1fr",
-  justifyContent: "center",
+  // justifyContent: "center",
+  columnGap: "20px",
   alignContent: "center",
   width: "100%",
   ".Image":{
@@ -15,9 +16,8 @@ export const Container = styled(Box)(({ theme }) => ({
   ".ImageContainer": {
     width: "100%",
     height: "300px",
-    margin: "auto",
+    margin: "auto auto 16px",
     overflow: "hidden",
-    marginBottom: "16px",
   },
   ".Content": {
     height: "auto",
@@ -29,14 +29,13 @@ export const Container = styled(Box)(({ theme }) => ({
   },
   [theme.breakpoints.up("sm")]: {
     gridTemplateColumns: "1fr 1fr",
-    columnGap: "40px",
+    // columnGap: "40px",
     ".Content": {
       textAlign: "left",
     },
     ".ImageContainer": {
       width: "100%",
       height: "auto",
-      marginBottom: "0",
       margin: "auto",
     },
     ".Buttons": {
@@ -45,8 +44,9 @@ export const Container = styled(Box)(({ theme }) => ({
   },
   [theme.breakpoints.up("md")]: {
     ".ImageContainer": {
-      width: "80%",
+      width: "90%",
       height: "auto",
+      margin: "auto auto 0 0",
     },
   },
 }));

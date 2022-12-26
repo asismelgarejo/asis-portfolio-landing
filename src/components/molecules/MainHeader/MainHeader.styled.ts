@@ -33,7 +33,7 @@ export const CustomToolbar = styled(Box)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   width: "100%",
-  ...measures.build(),
+  // ...measures.build(),
 }));
 
 export const Menus = styled(Box)(({ theme }) => ({

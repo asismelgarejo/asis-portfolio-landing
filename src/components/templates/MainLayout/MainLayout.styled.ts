@@ -4,26 +4,11 @@ const measures = new WebsiteMeasureBuilder().pL().pR();
 
 export const Container = styled(Box)<BoxProps>(({ theme }) => ({
   backgroundImage: theme.palette.background.default,
-  [theme.breakpoints.up("xs")]:{
+  [theme.breakpoints.down("md")]:{
     "& .hide-in-xs":{
-      display: "none",
+      display: "none !important",
     },
   },
-  [theme.breakpoints.up("sm")]:{
-    "& .hide-in-xs":{
-      display: "unset",
-    },
-  },
-  // [theme.breakpoints.up("md")]:{
-  //   ".hide-in-xs":{
-  //     display: "none",
-  //   },
-  // },
-  // [theme.breakpoints.up("lg")]:{
-  //   ".hide-in-xs":{
-  //     display: "none",
-  //   },
-  // },
   ".p-l": {
     ...getBoxModel(theme).padding.pL().build(),
   },
@@ -37,10 +22,10 @@ export const Container = styled(Box)<BoxProps>(({ theme }) => ({
     ...getBoxModel(theme).padding.pR().build(),
   },
   ".m-b-t": {
-    ...getBoxModel(theme).margin.marginBottomTitle,
+    ...getBoxModel(theme).margin.mBT().build(),
   },
   ".m-t-t": {
-    ...getBoxModel(theme).margin.marginTopTitle,
+    ...getBoxModel(theme).margin.mTT().build(),
   },
 }));
 export const Children = styled(Box)<BoxProps>(({ theme }) => ({

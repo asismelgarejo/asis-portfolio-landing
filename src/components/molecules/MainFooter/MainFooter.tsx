@@ -1,4 +1,4 @@
-import { Divider, Typography } from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 // import { getTotalOffset, screenScrollTo } from "@toolbox/helpers";
 import Link from "next/link";
 import React from "react";
@@ -8,10 +8,10 @@ import { Container, SocialNetwork } from "./MainFooter.styled";
 export const MainFooter = () => {
   return (
     <Container className="p-l p-r p-t p-b">
-      <Typography className="Logo" variant="h4" component="h5">
+      <Typography className="Logo" variant="h2" component="h5">
         Asis Melgarejo
       </Typography>
-      <Typography component="div" variant="h5" className="Links hide-in-xs">
+      <Typography component="div" variant="h6" className="Links hide-in-xs">
         {LINKS.map((l) => (
           <Typography
             variant="h6"
@@ -25,13 +25,13 @@ export const MainFooter = () => {
           </Typography>
         ))}
       </Typography>
-      <Typography component="div" variant="h5" className="SocialNetworks">
+      <Box component="div" className="SocialNetworks">
         {SOCIAL_NETWORKS.map(({ Icon, ...i }) => (
           <SocialNetwork key={i._id}>
             <Icon className="Item" />
           </SocialNetwork>
         ))}
-      </Typography>
+      </Box>
       <Divider sx={{ width: "100%" }} />
       <Typography component="p" variant="h6" className="Copyright">
         {new Date().getFullYear()}&ensp;&copy;&ensp;All rights reserved

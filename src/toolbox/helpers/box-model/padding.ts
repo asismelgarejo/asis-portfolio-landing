@@ -1,14 +1,14 @@
-import { Theme, useTheme } from "@mui/material";
+import { Theme } from "@mui/material";
 
 interface PaddingBuilder {
   pT(): PaddingBuilder;
   pB(): PaddingBuilder;
   pR(): PaddingBuilder;
   pL(): PaddingBuilder;
-  build():  Record<string, any>;
+  build(): Record<string, any>;
 }
 
-class Padding implements PaddingBuilder {
+export class Padding implements PaddingBuilder {
   private xs?: Record<string, any> = {};
   private sm?: Record<string, any> = {};
   private md?: Record<string, any> = {};
@@ -81,56 +81,3 @@ class Padding implements PaddingBuilder {
     };
   }
 }
-class Margin {
-  constructor(private theme: Theme) {}
-  build() {
-    return {
-      marginLeft: {
-        marginLeft: 10,
-        [this.theme.breakpoints.up("sm")]: {
-          marginLeft: 50,
-        },
-      },
-      marginRight: {
-        marginRight: 10,
-        [this.theme.breakpoints.up("sm")]: {
-          marginRight: 50,
-        },
-      },
-      marginBottom: {
-        marginBottom: 10,
-        [this.theme.breakpoints.up("sm")]: {
-          marginBottom: 20,
-        },
-      },
-      marginTop: {
-        marginTop: 10,
-        [this.theme.breakpoints.up("sm")]: {
-          marginTop: 20,
-        },
-      },
-      marginBottomTitle: {
-        marginBottom: 10,
-        [this.theme.breakpoints.up("sm")]: {
-          marginBottom: 20,
-        },
-      },
-      marginTopTitle: {
-        marginTop: 10,
-        [this.theme.breakpoints.up("sm")]: {
-          marginTop: 30,
-        },
-      },
-    };
-  }
-}
-
-export const getBoxModel = (theme: Theme) => {
-  const padding = new Padding(theme);
-  const margin = new Margin(theme).build();
-  return {
-    // margin,
-    padding,
-    margin,
-  };
-};

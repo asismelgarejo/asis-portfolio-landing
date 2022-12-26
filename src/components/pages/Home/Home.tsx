@@ -29,10 +29,10 @@ export const Home = () => {
       />
       </Box>
       <Box className="Content" component={Stack} spacing={2}>
-        <Typography component="h1" variant="h2">
+        <Typography component="h1" variant="h1">
           Asis Melgarejo
         </Typography>
-        <Typography component="h2" variant="h4">
+        <Typography component="h2" variant="h3">
           Full Stack Web and Mobile Developer
         </Typography>
         {showText && (

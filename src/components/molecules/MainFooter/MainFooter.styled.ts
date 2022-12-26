@@ -46,9 +46,9 @@ export const Container = styled(Box, {
 }));
 
 export const SocialNetwork = styled(
-  Typography,
+  Box,
   {}
-)<TypographyProps>(({ theme }) => ({
+)<BoxProps>(({ theme }) => ({
   margin: "0 15px",
   width: "2.5em",
   height: "2.5em",
