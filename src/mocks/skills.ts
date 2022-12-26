@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 
 export const SKILLS: Skill[] = [
   {
-    _id: uuidv4(),
+    _id: "63a2904798084589d5bbb1ea",
     name: "React.js",
     image: {
       url: "/icons/reactjs.svg",
@@ -13,7 +13,7 @@ export const SKILLS: Skill[] = [
     color: "#00D8FF"
   },
   {
-    _id: uuidv4(),
+    _id: "63a29058d51fd20f28201546",
     name: "Nest.js",
     image: {
       url: "/icons/nestjs.svg",
@@ -23,7 +23,7 @@ export const SKILLS: Skill[] = [
     color: "#EA2845"
   },
   {
-    _id: uuidv4(),
+    _id: "63a290612a886463145e9a7c",
     name: "Postman.js",
     image: {
       url: "/icons/postman.svg",
@@ -33,7 +33,7 @@ export const SKILLS: Skill[] = [
     color: "#FF6C37"
   },
   {
-    _id: uuidv4(),
+    _id: "63a29068ec6ef360a6290f3b",
     name: "Bash",
     image: {
       url: "/icons/bash.svg",
@@ -43,7 +43,7 @@ export const SKILLS: Skill[] = [
     color: "#000"
   },
   {
-    _id: uuidv4(),
+    _id: "63a2906f5265dd876151ef8f",
     name: "Typscript",
     image: {
       url: "/icons/ts.svg",
@@ -53,7 +53,7 @@ export const SKILLS: Skill[] = [
     color: "#3178C6"
   },
   {
-    _id: uuidv4(),
+    _id: "63a2907631aaae12f5f9634f",
     name: "Golang",
     image: {
       url: "/icons/golang.svg",
@@ -63,7 +63,7 @@ export const SKILLS: Skill[] = [
     color: "#00ACD7"
   },
   {
-    _id: uuidv4(),
+    _id: "63a2907deec7733c933dd07a",
     name: "AWS Lambda",
     image: {
       url: "/icons/awslambda.svg",
@@ -73,7 +73,7 @@ export const SKILLS: Skill[] = [
     color: "#F58534"
   },
   {
-    _id: uuidv4(),
+    _id: "63a290831fc903287ad93c5b",
     name: "CSS3",
     image: {
       url: "/icons/css3.svg",
@@ -83,7 +83,7 @@ export const SKILLS: Skill[] = [
     color: "#2965F1"
   },
   {
-    _id: uuidv4(),
+    _id: "63a2908a44366ea2bc522776",
     name: "Dart",
     image: {
       url: "/icons/dart.svg",
@@ -93,7 +93,7 @@ export const SKILLS: Skill[] = [
     color: "#00C4B3"
   },
   {
-    _id: uuidv4(),
+    _id: "63a290901be00085b6839324",
     name: "Docker",
     image: {
       url: "/icons/docker.svg",
@@ -103,7 +103,7 @@ export const SKILLS: Skill[] = [
     color: "#1396C3"
   },
   {
-    _id: uuidv4(),
+    _id: "63a2909b373955717b2fa0c0",
     name: "MongoDB",
     image: {
       url: "/icons/mongodb.svg",
@@ -113,7 +113,7 @@ export const SKILLS: Skill[] = [
     color: "#6CAC48"
   },
   {
-    _id: uuidv4(),
+    _id: "63a290a3cd7feea3a4a559d2",
     name: "MySQL",
     image: {
       url: "/icons/mysql.svg",
@@ -123,7 +123,7 @@ export const SKILLS: Skill[] = [
     color: "#0A517D"
   },
   {
-    _id: uuidv4(),
+    _id: "63a290ab95a1431d9f99fe3b",
     name: "Node.js",
     image: {
       url: "/icons/nodejs.svg",
@@ -133,7 +133,7 @@ export const SKILLS: Skill[] = [
     color: "#8CC84B"
   },
   {
-    _id: uuidv4(),
+    _id: "63a290b2c767d94b61a3f9e3",
     name: "PostgreSQL",
     image: {
       url: "/icons/postgresql.svg",
@@ -143,7 +143,7 @@ export const SKILLS: Skill[] = [
     color: "#336791"
   },
   {
-    _id: uuidv4(),
+    _id: "63a290b825ee6b1458f44a91",
     name: "GraphQL",
     image: {
       url: "/icons/graphql.svg",

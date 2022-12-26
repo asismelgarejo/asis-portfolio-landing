@@ -25,9 +25,9 @@ const Projects = () => {
   const { containerRef } = useActiveSection("projects");
   const { cards, card } = useSpreadCardAnimations();
   return (
-    <Container ref={containerRef}>
+    <Container ref={containerRef} className="p-t p-b">
       <HolderAnchor _id="projects" />
-      <Typography component="h2" variant="h2" className="TitleSection">
+      <Typography component="h2" variant="h2" className="TitleSection m-b-t">
         Projects
       </Typography>
       <Divider />
@@ -36,6 +36,7 @@ const Projects = () => {
         initial="loading"
         whileInView="loaded"
         variants={cards}
+        className="TitleSection m-t-t"
       >
         {PROJECTS.map((p) => (
           <Card

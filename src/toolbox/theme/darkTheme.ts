@@ -3,7 +3,6 @@ import { Roboto } from "@next/font/google";
 
 const roboto = Roboto({ weight: ["400", "700"] });
 
-const LogoStyles = {};
 
 export const darkTheme: ThemeOptions = {
   typography: {

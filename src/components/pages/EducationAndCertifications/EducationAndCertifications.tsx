@@ -65,9 +65,9 @@ const EducationAndCertifications = () => {
     },
   };
   return (
-    <Container ref={containerRef}>
+    <Container ref={containerRef} className="p-t p-b">
       <HolderAnchor _id="education-and-certifications" />
-      <Typography component="h2" variant="h2" className="TitleSection">
+      <Typography component="h2" variant="h2" className="TitleSection m-b-t">
         Education & Certifications
       </Typography>
       <Divider/>
@@ -76,6 +76,7 @@ const EducationAndCertifications = () => {
         initial="loading"
         whileInView="loaded"
         variants={certifications}
+        className="m-t-t"
       >
         {EDUCATION_AND_CERTIFICATIONS.map(({ _id, ...eac }) => (
           <motion.div

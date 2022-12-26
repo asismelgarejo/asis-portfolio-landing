@@ -1,15 +1,15 @@
 import { Box, BoxProps, styled } from "@mui/material";
 import { WebsiteMeasureBuilder } from "@toolbox/helpers";
-const measures = new WebsiteMeasureBuilder().mB().mT();
-const measuresTitle = new WebsiteMeasureBuilder().mTitleB();
+// const measures = new WebsiteMeasureBuilder().mB().mT();
+// const measuresTitle = new WebsiteMeasureBuilder().mTitleB();
 const measuresHeader = new WebsiteMeasureBuilder().headerHeight();
-const measuresTitleT = new WebsiteMeasureBuilder().mTitleT();
-const BASE_SIZE = "33%";
+// const measuresTitleT = new WebsiteMeasureBuilder().mTitleT();
+// const BASE_SIZE = "33%";
 export const Container = styled(Box)<BoxProps>(({ theme }) => ({
   minHeight: `calc(100vh - ${measuresHeader.build().height}px)`,
-  ...measures.build(),
+  // ...measures.build(),
   ".TitleSection": {
-    ...measuresTitle.build(),
+    // ...measuresTitle.build(),
   },
 }));
 
@@ -61,7 +61,7 @@ export const ContainerSkills = styled(Box, {
   width: "100%",
   display: "grid",
   gridTemplateColumns: `${column} minmax(40px, auto) ${column}`,
-  ...measuresTitleT.build(),
+  // ...measuresTitleT.build(),
   rowGap: "20px",
   ".SkillImage": {
     width: "100%",

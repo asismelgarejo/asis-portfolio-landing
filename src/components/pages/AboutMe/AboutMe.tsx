@@ -10,9 +10,9 @@ const AboutMe = () => {
   const { containerRef } = useActiveSection("about-me");
 
   return (
-    <Container ref={containerRef} >
+    <Container ref={containerRef} className="p-t p-b">
       <HolderAnchor _id="about-me" />
-      <Typography component="h2" variant="h2" className="Title">
+      <Typography component="h2" variant="h2" className="Title m-b-t">
         About me
       </Typography>
       <Divider/>

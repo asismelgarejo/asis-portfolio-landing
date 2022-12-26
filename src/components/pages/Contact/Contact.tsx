@@ -25,12 +25,12 @@ const Contact = () => {
   const { containerRef } = useActiveSection("contact");
 
   return (
-    <Container ref={containerRef}>
+    <Container ref={containerRef} className="p-t p-b">
       <HolderAnchor _id="contact" />
       <Content component={Card}>
         <ContactInfo>
           <CardContent>
-            <Typography component="h2" variant="h2" className="TitleSection">
+            <Typography component="h2" variant="h2" className="TitleSection m-b-t">
               Contact
             </Typography>
             <Divider />

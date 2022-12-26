@@ -38,13 +38,13 @@ const Skills = () => {
     setSkills(s);
   }, []);
   return (
-    <Container ref={containerRef} component="section">
+    <Container ref={containerRef} component="section" className="p-b p-t">
       <HolderAnchor _id="skills" />
-      <Typography component="h2" variant="h2" className="TitleSection">
+      <Typography component="h2" variant="h2" className="TitleSection m-b-t">
         Skills
       </Typography>
       <Divider />
-      <ContainerSkills>
+      <ContainerSkills className="m-t-t">
         {skills.map((ss, idx) => (
           <SkillLote itemsLength={PERPAGE} key={idx}>
             {ss.map((s) => (

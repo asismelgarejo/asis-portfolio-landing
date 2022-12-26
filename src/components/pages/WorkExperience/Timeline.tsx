@@ -7,7 +7,7 @@ import { WORK_EXPERIENCES } from "src/mocks/work_experience";
 
 export const Timeline = () => {
   return (
-    <Container>
+    <Container className="p-t p-b">
       <Box>
       {WORK_EXPERIENCES.map((c) => (
         <CardContainer key={c._id} className="CardContainer">

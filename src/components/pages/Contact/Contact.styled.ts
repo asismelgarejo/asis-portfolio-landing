@@ -1,11 +1,11 @@
 import { Box, BoxProps, styled } from "@mui/material";
 import { WebsiteMeasureBuilder } from "@toolbox/helpers";
-const measures = new WebsiteMeasureBuilder().mB().mT();
-const measuresTitle = new WebsiteMeasureBuilder().mTitleB(10);
+// const measures = new WebsiteMeasureBuilder().mB().mT();
+// const measuresTitle = new WebsiteMeasureBuilder().mTitleB(10);
 const measuresHeader = new WebsiteMeasureBuilder().headerHeight();
 export const Container = styled(Box)<BoxProps>(({ theme }) => ({
   minHeight: `calc(100vh - ${measuresHeader.build().height}px)`,
-  ...measures.build(),
+  // ...measures.build(),
   display: "flex",
   flexDirection:"column",
   padding: "6em 0",
@@ -25,7 +25,7 @@ export const ContactInfo = styled(Box)<BoxProps>(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   ".TitleSection":{
-    ...measuresTitle.build(),
+    // ...measuresTitle.build(),
   },
   ".SocialNetworks":{
     background: theme.palette.background.default,

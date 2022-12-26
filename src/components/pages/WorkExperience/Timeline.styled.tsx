@@ -1,12 +1,12 @@
 import { Box, Stack, styled } from "@mui/material";
 import { WebsiteMeasureBuilder } from "@toolbox/helpers";
-const measuresTitleT = new WebsiteMeasureBuilder().mTitleT();
+// const measuresTitleT = new WebsiteMeasureBuilder().mTitleT();
 
 export const Container = styled(Box)(() => ({
   display: "flex",
   justifyContent: "center",
   margin: "0 auto",
-  ...measuresTitleT.build(),
+  // ...measuresTitleT.build(),
 }));
 const offset = "-10px"
 export const CardContainer = styled(Box)(({ theme }) => ({
