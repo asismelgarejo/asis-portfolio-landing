@@ -1,15 +1,11 @@
 import { Box, BoxProps, styled } from "@mui/material";
-import { WebsiteMeasureBuilder } from "@toolbox/helpers";
-// const measures = new WebsiteMeasureBuilder().mB().mT();
-// const measuresTitle = new WebsiteMeasureBuilder().mTitleB();
+import { getBoxModel, WebsiteMeasureBuilder } from "@toolbox/helpers";
 const measuresHeader = new WebsiteMeasureBuilder().headerHeight();
-// const measuresTitleT = new WebsiteMeasureBuilder().mTitleT();
-// const BASE_SIZE = "33%";
 export const Container = styled(Box)<BoxProps>(({ theme }) => ({
   minHeight: `calc(100vh - ${measuresHeader.build().height}px)`,
-  // ...measures.build(),
-  ".TitleSection": {
-    // ...measuresTitle.build(),
+  ...getBoxModel(theme).padding.pL().pR().build(),
+  [theme.breakpoints.up("sm")]: {
+    ...getBoxModel(theme).padding.pL(0).pR(0).build(),
   },
 }));
 
@@ -60,13 +56,16 @@ export const ContainerSkills = styled(Box, {
 })<ContainerSkillsProps>(({ theme }) => ({
   width: "100%",
   display: "grid",
-  gridTemplateColumns: `${column} minmax(40px, auto) ${column}`,
+  gridTemplateColumns: `1fr`,
   // ...measuresTitleT.build(),
   rowGap: "20px",
   ".SkillImage": {
     width: "100%",
     height: "auto",
     maxWidth: "100px"
+  },
+  [theme.breakpoints.up("md")]: {
+    gridTemplateColumns: `${column} minmax(40px, auto) ${column}`,
   },
 }));
 
@@ -102,6 +101,7 @@ const getRowsPattern = (l: number) => {
   }, "") as string;
 };
 
+
 const columnBatch =
   "minmax(20px, auto) minmax(10px, auto) 1fr 10px minmax(20px, auto)";
 export const SkillLote = styled(Box, {
@@ -114,13 +114,16 @@ export const SkillLote = styled(Box, {
   gridTemplateColumns: columnBatch,
   gridTemplateRows: getRowsPattern(itemsLength),
   ...getPositionInGrid(itemsLength),
-  "&:nth-of-type(odd)":{
-    gridColumn: "1 / 2"
-  },
-  "&:nth-of-type(even)":{
-    gridColumn: "3 / -1"
+  [theme.breakpoints.up("md")]: {
+    "&:nth-of-type(odd)":{
+      gridColumn: "1 / 2"
+    },
+    "&:nth-of-type(even)":{
+      gridColumn: "3 / -1"
+    },
   },
   ".Collapse":{
-    paddingTop: "15px"
+    paddingTop: "15px",
+    marginBottom: "auto"
   }
 }));

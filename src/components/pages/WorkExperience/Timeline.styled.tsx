@@ -8,7 +8,7 @@ export const Container = styled(Box)(() => ({
   margin: "0 auto",
   // ...measuresTitleT.build(),
 }));
-const offset = "-10px"
+const offset = "-10px";
 export const CardContainer = styled(Box)(({ theme }) => ({
   position: "relative",
   maxWidth: "900px",
@@ -64,15 +64,15 @@ export const CardInfo = styled(Stack)(({ theme }) => ({
   minWidth: "180px",
   minHeight: "auto",
   position: "relative",
-  width: "20vw",
+  width: "17vw",
   background: "#009ADA",
   // background: theme.palette.secondary.main,
   borderRadius: "50%",
-  "&:before":{
+  "&:before": {
     content: "''",
     paddingTop: "100%",
   },
-  ".Inner":{
+  ".Inner": {
     position: "absolute",
     top: 0,
     left: 0,
@@ -84,5 +84,9 @@ export const CardInfo = styled(Stack)(({ theme }) => ({
   },
   ".Image": {
     width: "50%",
+    height: "auto",
+  },
+  [theme.breakpoints.up("md")]: {
+    width: "10vw",
   },
 }));

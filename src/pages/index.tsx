@@ -18,7 +18,7 @@ export default function Index() {
         <AboutMe />
         <EducationAndCertifications />
         <WorkExperience />
-        {/* <Skills /> */}
+        <Skills />
         {/* <Projects /> */}
         {/* <Contact /> */}
       </MainLayout>
