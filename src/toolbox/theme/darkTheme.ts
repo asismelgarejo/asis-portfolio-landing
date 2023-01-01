@@ -58,5 +58,13 @@ export const darkTheme: ThemeOptions = {
         },
       },
     },
+    MuiTooltip:{ 
+      styleOverrides: {
+        tooltip: {
+          color: "#fff",
+          fontSize: ".8em"
+        }
+      },
+    }
   },
 };

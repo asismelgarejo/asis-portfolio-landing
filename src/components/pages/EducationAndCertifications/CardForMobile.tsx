@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import { Pagination } from "swiper";
-import { EducationAndCertification } from "@api//models";
+import { EducationAndCertification } from "@api/models";
 import { CardDocument } from "./CardDocument";
 import { CardDoc, ContainerMobile } from "./EducationAndCertifications.styled";
 

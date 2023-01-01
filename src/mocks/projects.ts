@@ -1,4 +1,4 @@
-import { Project } from "@api//models/projects";
+import { Project } from "@api/models/projects";
 import { v4 as uuidv4 } from "uuid";
 export const PROJECTS: Project[] = [
   {

@@ -1,4 +1,4 @@
-import { EducationAndCertification } from "@api//models";
+import { EducationAndCertification } from "@api/models";
 import { Box, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import { format } from "date-fns";

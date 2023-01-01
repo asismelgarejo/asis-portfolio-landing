@@ -19,7 +19,7 @@ import {
   SkillStats,
 } from "./Skills.styled";
 import { KeyboardArrowDown as ArrowIcon } from "@mui/icons-material";
-import { Skill } from "@api//models/skills";
+import { Skill } from "@api/models/skills";
 const Skills = () => {
   const { containerRef } = useActiveSection("skills");
 

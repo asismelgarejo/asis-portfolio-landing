@@ -1,55 +1,57 @@
 import { v4 as uuidv4 } from "uuid";
-import {
-  Settings as SettingsIcon,
-  AccountCircle as UserIcon,
-  School as SchoolIcon,
-  BusinessCenter as BagIcon,
-  Code as CodeIcon,
-  PermContactCalendar as ContactIcon,
-} from "@mui/icons-material";
+import { Link } from "@api/models";
+import { ICONS } from "@toolbox/constants/icons";
 
-interface Link {
-  _id: string;
-  name: string;
-  Icon: any;
-  url: string;
-}
+export const PAGE_LINKS: Link[] = [
+  {
+    _id: uuidv4(),
+    name: "Home",
+    icon: "UserIcon",
+    url: "/",
+  },
+  {
+    _id: uuidv4(),
+    name: "Blog",
+    icon: "BlogIcon",
+    url: "blog",
+  },
+]
 
 export const LINKS: Link[] = [
   {
     _id: uuidv4(),
     name: "About me",
-    Icon: UserIcon,
+    icon: "UserIcon",
     url: "about-me",
   },
   {
     _id: uuidv4(),
     name: "Education & Certifications",
-    Icon: SchoolIcon,
+    icon: "SchoolIcon",
     url: "education-and-certifications",
   },
   {
     _id: uuidv4(),
     name: "Experience",
-    Icon: BagIcon,
+    icon: "BagIcon",
     url: "work-experience",
   },
   {
     _id: uuidv4(),
     name: "Skills",
-    Icon: CodeIcon,
+    icon: "CodeIcon",
     url: "skills",
   },
   {
     _id: uuidv4(),
     name: "Projects",
-    Icon: BagIcon,
+    icon: "BagIcon",
     url: "projects",
   },
   {
     _id: uuidv4(),
     name: "Contact",
-    Icon: ContactIcon,
+    icon: "ContactIcon",
     url: "contact",
   },
 ];

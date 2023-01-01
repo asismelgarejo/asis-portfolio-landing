@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 import React from "react";
-import { WorkExperience } from "@api//models";
+import { WorkExperience } from "@api/models";
 
 export const WORK_EXPERIENCES: WorkExperience[] = [
   {

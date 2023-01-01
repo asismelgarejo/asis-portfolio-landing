@@ -54,14 +54,17 @@ type MenuProps = TooltipProps & {
 export const Menu = styled(Tooltip, {
   shouldForwardProp: (prop) => prop !== "active",
 })<MenuProps>(({ theme, active }) => ({
-  background: theme.palette.background.paper,
   borderRadius: "50%",
   fontSize: "inherit",
+  transition: "background .5s, background .5s",
   ...(active
     ? {
-        boxShadow: `0 0 2px 3px ${theme.palette.secondary.main}`,
+        boxShadow: `0 0 1px 4px ${theme.palette.error.dark}`,
+        background: theme.palette.error.light
       }
-    : {}),
+    : {
+      background: theme.palette.background.paper,
+    }),
 
   marginBottom: "1em",
   "&:last-child": {

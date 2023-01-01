@@ -12,6 +12,7 @@ import { useSettingContext } from "src/contexts/SettingSidebarContext";
 import { useActiveSectionContext } from "src/contexts/ActiveSectionContext";
 import Link from "next/link";
 import { LINKS } from "src/mocks/links";
+import { getIcon } from "@toolbox/helpers";
 
 export const VerticalNavigationBar = () => {
   const { setOpen } = useSettingContext();
@@ -21,24 +22,27 @@ export const VerticalNavigationBar = () => {
     <Container>
       <NavigationBar component={Card}>
         <Menus>
-          {LINKS.map(({ Icon, ...m }) => (
-            <Menu
-              key={m._id}
-              className="Menu"
-              // active={true}
-              active={Boolean(sections && sections[m.url]?.active)}
-              title={m.name}
-              placement="right"
-            >
-              <IconButton
-                component={Link}
-                href={`#${m.url}`}
-                sx={{ fontSize: "inherit" }}
+          {LINKS.map((m) => {
+            const Icon = getIcon(m.icon);
+            return (
+              <Menu
+                key={m._id}
+                className="Menu"
+                active={Boolean(sections && sections[m.url]?.active)}
+                title={m.name}
+                placement="right"
               >
-                <Icon className="Icon" sx={{ fontSize: "inherit" }} />
-              </IconButton>
-            </Menu>
-          ))}
+                <IconButton
+                  component={Link}
+                  href={`#${m.url}`}
+                  sx={{ fontSize: "inherit" }}
+                  disableRipple
+                >
+                  <Icon className="Icon" sx={{ fontSize: "inherit" }} />
+                </IconButton>
+              </Menu>
+            )
+          })}
         </Menus>
         <Setting>
           <motion.div whileHover={{ rotate: 360, scale: 1.1 }}>
