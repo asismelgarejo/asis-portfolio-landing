@@ -19,7 +19,6 @@ export const Home = () => {
   return (
     <Container className="p-t p-b">
       <Box  className="ImageContainer">
-
       <Image
         src="/home.png"
         alt="asis"

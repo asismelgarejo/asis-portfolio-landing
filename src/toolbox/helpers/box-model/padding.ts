@@ -1,10 +1,10 @@
 import { Theme } from "@mui/material";
 
 interface PaddingBuilder {
-  pT(): PaddingBuilder;
-  pB(): PaddingBuilder;
-  pR(): PaddingBuilder;
-  pL(): PaddingBuilder;
+  pT(p?: number): PaddingBuilder;
+  pB(p?: number): PaddingBuilder;
+  pR(p?: number): PaddingBuilder;
+  pL(p?: number): PaddingBuilder;
   build(): Record<string, any>;
 }
 
@@ -41,25 +41,25 @@ export class Padding implements PaddingBuilder {
     return this;
   }
 
-  pR(): PaddingBuilder {
+  pR(p?: number): PaddingBuilder {
     this.xs = {
       ...this.xs,
       paddingRight: 20,
     };
     this.sm = {
       ...this.sm,
-      paddingRight: 50,
+      paddingRight: p ?? 50,
     };
     return this;
   }
-  pL(): PaddingBuilder {
+  pL(p?: number): PaddingBuilder {
     this.xs = {
       ...this.xs,
       paddingLeft: 20,
     };
     this.sm = {
       ...this.sm,
-      paddingLeft: 50,
+      paddingLeft: p ?? 50,
     };
     return this;
   }

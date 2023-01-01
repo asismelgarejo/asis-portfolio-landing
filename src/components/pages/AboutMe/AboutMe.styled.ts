@@ -1,9 +1,14 @@
 import { Box, BoxProps, styled } from "@mui/material";
-import { WebsiteMeasureBuilder } from "@toolbox/helpers";
+import { getBoxModel, WebsiteMeasureBuilder } from "@toolbox/helpers";
 const measuresHeader = new WebsiteMeasureBuilder().headerHeight();
 
 export const Container = styled(Box)<BoxProps>(({ theme }) => ({
   minHeight: `calc(100vh - ${measuresHeader.build().height}px)`,
+  //Adding global padding
+  ...getBoxModel(theme).padding.pL().pR().build(),
+  [theme.breakpoints.up("sm")]: {
+    ...getBoxModel(theme).padding.pL(0).pR(0).build(),
+  },
 }));
 export const ContainerContent = styled(Box)<BoxProps>(({ theme }) => ({
   display: "grid",

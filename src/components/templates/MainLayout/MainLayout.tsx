@@ -20,7 +20,6 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
       <SettingSidebar />
       <MainHeader />
       <Children data-no-count-offset>
-        {/* <VerticalNavigationBar /> */}
         {showVerticalSidebar && <VerticalNavigationBar />}
         <Box>{children}</Box>
       </Children>

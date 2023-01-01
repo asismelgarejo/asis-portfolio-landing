@@ -4,8 +4,8 @@ const measures = new WebsiteMeasureBuilder().pL().pR();
 
 export const Container = styled(Box)<BoxProps>(({ theme }) => ({
   backgroundImage: theme.palette.background.default,
-  [theme.breakpoints.down("md")]:{
-    "& .hide-in-xs":{
+  [theme.breakpoints.down("md")]: {
+    "& .hide-in-xs": {
       display: "none !important",
     },
   },
@@ -29,18 +29,19 @@ export const Container = styled(Box)<BoxProps>(({ theme }) => ({
   },
 }));
 export const Children = styled(Box)<BoxProps>(({ theme }) => ({
-  // minHeight: "1000px",
   position: "relative",
   display: "grid",
   gridTemplateColumns: "auto",
   gridAutoRows: "auto",
   columnGap: "40px",
 
-  [theme.breakpoints.up("md")]:{
+  [theme.breakpoints.up("md")]: {
     gridTemplateColumns: "auto auto",
   },
-  "&": {
+  [theme.breakpoints.up("sm")]: {
     ...getBoxModel(theme).padding.pL().pR().build(),
   },
-
+  // "&": {
+  //   ...getBoxModel(theme).padding.pL().pR().build(),
+  // },
 }));

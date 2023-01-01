@@ -1,11 +1,12 @@
 import { Box, styled } from "@mui/material";
-import { WebsiteMeasureBuilder } from "@toolbox/helpers";
+import { getBoxModel, WebsiteMeasureBuilder } from "@toolbox/helpers";
 const measuresHeader = new WebsiteMeasureBuilder().headerHeight();
 export const Container = styled(Box)(({ theme }) => ({
   display: "grid",
   minHeight: `calc(100vh - ${measuresHeader.build().height}px)`,
   gridTemplateColumns: "1fr",
-  // justifyContent: "center",
+  //Adding global padding
+  ...getBoxModel(theme).padding.pL().pR().build(),
   columnGap: "20px",
   alignContent: "center",
   width: "100%",
@@ -28,18 +29,19 @@ export const Container = styled(Box)(({ theme }) => ({
     justifyContent: "center",
   },
   [theme.breakpoints.up("sm")]: {
+    ...getBoxModel(theme).padding.pL(0).pR(0).build(),
     gridTemplateColumns: "1fr 1fr",
     // columnGap: "40px",
     ".Content": {
-      textAlign: "left",
+      textAlign: "left !important",
     },
     ".ImageContainer": {
       width: "100%",
-      height: "auto",
+      height: "auto !important",
       margin: "auto",
     },
     ".Buttons": {
-      justifyContent: "unset",
+      justifyContent: "unset !important",
     },
   },
   [theme.breakpoints.up("md")]: {
