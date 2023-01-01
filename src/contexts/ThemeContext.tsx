@@ -79,9 +79,26 @@ export const ThemeContextProvider: React.FC<ThemeContextProviderProps> = ({
   };
   theme.typography.body1 = {
     fontSize: "1.1em",
-    fontWeight: 100,
+    fontWeight: 200,
     [theme.breakpoints.up("sm")]: {
       fontSize: "1.5em",
+    },
+  };
+  theme.typography.caption = {
+    fontSize: ".8em",
+    lineHeight: "1.5em",
+    // fontWeight: 100,
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "1em",
+      lineHeight: "2em",
+    },
+  };
+  theme.typography.body2 = {
+    fontSize: ".8em",
+    fontWeight: 200,
+    [theme.breakpoints.up("sm")]: {
+      fontSize: ".9em",
+      fontWeight: 200,
     },
   };
   if (theme.components?.MuiButton) {

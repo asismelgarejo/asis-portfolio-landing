@@ -19,11 +19,11 @@ export const CardDocument: React.FC<CardDocumentProps> = ({doc}) => (
         {doc.title}
       </Typography>
       <Box className="Captions">
-        <Typography component="small" className="Caption">
+        <Typography component="small" className="Caption" variant="caption">
           {format(doc.start_date, "yyyy")}
         </Typography>
         <Box>&ensp;-&ensp;</Box>
-        <Typography component="small" className="Caption">
+        <Typography component="small" className="Caption" variant="caption">
           {format(doc.end_date, "yyyy")}
         </Typography>
       </Box>

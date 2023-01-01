@@ -6,7 +6,6 @@ import { getBoxModel, WebsiteMeasureBuilder } from "@toolbox/helpers";
 // const measuresTitleT = new WebsiteMeasureBuilder().mTitleT();
 const measuresHeader = new WebsiteMeasureBuilder().headerHeight();
 export const Container = styled(Box)<BoxProps>(({ theme }) => ({
-  minheight: `calc(100vh - ${measuresHeader.build().height}px)`,
   // ...measures.build(),
   ".TitleSection": {
     //Adding global padding
@@ -17,6 +16,7 @@ export const Container = styled(Box)<BoxProps>(({ theme }) => ({
     ...getBoxModel(theme).padding.pL().pR().build(),
   },
   [theme.breakpoints.up("sm")]: {
+    minHeight: `calc(100vh - ${measuresHeader.build().height}px)`,
     ".TitleSection": {
       ...getBoxModel(theme).padding.pL(0).pR(0).build(),
     },
@@ -80,9 +80,9 @@ export const CardDoc = styled(Card)<CardProps>(({ theme }) => ({
     marginTop: "0.3em !important",
     justifyContent: "center",
   },
-  ".Caption": {
-    fontSize: "1em",
-  },
+  // ".Caption": {
+  //   fontSize: "1em",
+  // },
 }));
 export const ContainerMobile = styled(Box)<BoxProps>(({ theme }) => ({
   width: "calc(100vw)",

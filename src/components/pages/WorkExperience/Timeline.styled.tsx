@@ -61,11 +61,27 @@ export const CardContainer = styled(Box)(({ theme }) => ({
   },
 }));
 export const CardInfo = styled(Stack)(({ theme }) => ({
-  width: "200px",
-  height: "200px",
+  minWidth: "180px",
+  minHeight: "auto",
+  position: "relative",
+  width: "20vw",
   background: "#009ADA",
   // background: theme.palette.secondary.main,
   borderRadius: "50%",
+  "&:before":{
+    content: "''",
+    paddingTop: "100%",
+  },
+  ".Inner":{
+    position: "absolute",
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+    margin: "auto",
+    width: "100%",
+    height: "100%",
+  },
   ".Image": {
     width: "50%",
   },

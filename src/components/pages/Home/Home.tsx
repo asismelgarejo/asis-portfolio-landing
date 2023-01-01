@@ -7,6 +7,7 @@ import {
   useTheme,
 } from "@mui/material";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import HomeImage from "../../../assets/home.jpeg";
 import { Container } from "./Home.styled";
@@ -18,14 +19,14 @@ export const Home = () => {
   const showContactBtn = greaterOrEqualToSM;
   return (
     <Container className="p-t p-b">
-      <Box  className="ImageContainer">
-      <Image
-        src="/home.png"
-        alt="asis"
-        width={500}
-        height={800}
-        className="Image"
-      />
+      <Box className="ImageContainer">
+        <Image
+          src="/home.png"
+          alt="asis"
+          width={500}
+          height={800}
+          className="Image"
+        />
       </Box>
       <Box className="Content" component={Stack} spacing={2}>
         <Typography component="h1" variant="h1">
@@ -45,7 +46,12 @@ export const Home = () => {
             Download CV
           </Button>
           {showContactBtn && (
-            <Button variant="outlined" sx={{ width: "fit-content" }}>
+            <Button
+              variant="outlined"
+              sx={{ width: "fit-content" }}
+              component={Link}
+              href={"#contact"}
+            >
               Contact
             </Button>
           )}

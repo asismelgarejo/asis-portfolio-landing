@@ -19,7 +19,7 @@ const measuresHeader = new WebsiteMeasureBuilder().headerHeight();
 export const MainHeader = () => {
   const { scrollYProgress } = useScroll();
   const theme = useTheme();
-  const greaterOrEqualToSM = useMediaQuery(theme.breakpoints.up("sm"));
+  const isMobile = useMediaQuery(theme.breakpoints.up("md"));
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -34,7 +34,7 @@ export const MainHeader = () => {
             <LogoDevIcon />
             <Typography variant="h6">ASIS MELGAREJO</Typography>
           </Stack>
-          {greaterOrEqualToSM && (
+          {isMobile && (
             <Menus>
               {PAGE_LINKS.map((pl) => (
                 <Menu
@@ -48,7 +48,7 @@ export const MainHeader = () => {
               ))}
             </Menus>
           )}
-          {!greaterOrEqualToSM && (
+          {!isMobile && (
             <MobileMenuSidebar
               open={open}
               toggle={() => setOpen((prev) => !prev)}
