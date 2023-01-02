@@ -19,7 +19,7 @@ export default function Index() {
         <EducationAndCertifications />
         <WorkExperience />
         <Skills />
-        {/* <Projects /> */}
+        <Projects />
         {/* <Contact /> */}
       </MainLayout>
     </div>

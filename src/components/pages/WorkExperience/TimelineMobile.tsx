@@ -38,6 +38,7 @@ export const TimelineMobile: React.FC<TimelineMobileProps> = ({
                 <Stack
                   className="Inner"
                   alignItems="center"
+                  justifyContent="center"
                 >
                   <Image
                     className="Image"
@@ -49,7 +50,7 @@ export const TimelineMobile: React.FC<TimelineMobileProps> = ({
                   <Typography
                     variant="h6"
                     component="h6"
-                    sx={{ fontWeight: 400, textAlign: "center" }}
+                    sx={{ fontWeight: 400, textAlign: "center", marginTop: ".5em" }}
                   >
                     {we.company.name}
                   </Typography>

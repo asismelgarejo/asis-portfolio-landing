@@ -7,7 +7,6 @@ export const Container = styled(Box)(({ theme }) => ({
   gridTemplateColumns: "1fr",
   //Adding global padding
   ...getBoxModel(theme).padding.pL().pR().build(),
-  columnGap: "20px",
   alignContent: "center",
   width: "100%",
   ".Image":{
@@ -30,7 +29,8 @@ export const Container = styled(Box)(({ theme }) => ({
   },
   [theme.breakpoints.up("sm")]: {
     ...getBoxModel(theme).padding.pL(0).pR(0).build(),
-    gridTemplateColumns: "1fr 1fr",
+    columnGap: "40px",
+    gridTemplateColumns: "auto 60%",
     // columnGap: "40px",
     ".Content": {
       textAlign: "left !important",

@@ -152,4 +152,44 @@ export const SKILLS: Skill[] = [
     domain: 0.4,
     color: "#E10098"
   },
+  {
+    _id: "63b21bb89d5c4780dc2eb4b4",
+    name: "Java",
+    image: {
+      url: "/icons/java.svg",
+      caption: "Java",
+    },
+    domain: 0.4,
+    color: "#E10098"
+  },
+  {
+    _id: "63b21bb37fe49fc409265cf7",
+    name: "Spring Boot",
+    image: {
+      url: "/icons/spring.svg",
+      caption: "Spring Boot",
+    },
+    domain: 0.4,
+    color: "#E10098"
+  },
+  {
+    _id: "63b21baf7e57731899475b47",
+    name: "Kotlin",
+    image: {
+      url: "/icons/kotlin.svg",
+      caption: "Kotlin",
+    },
+    domain: 0.4,
+    color: "#E10098"
+  },
+  {
+    _id: "63b21ba9cabb1ebcb5151342",
+    name: "Gin",
+    image: {
+      url: "/icons/gingonic.png",
+      caption: "Gin",
+    },
+    domain: 0.4,
+    color: "#E10098"
+  },
 ];

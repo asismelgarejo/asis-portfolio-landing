@@ -44,7 +44,7 @@ const Skills = () => {
 
   useEffect(() => {
     if (greaterOrEqualToSM) setSkills(transformIntoArrayOfArrays());
-    else setSkills([SKILLS.slice(0, 14)]);
+    else setSkills([SKILLS]);
   }, [greaterOrEqualToSM]);
   return (
     <Container ref={containerRef} component="section" className="p-b p-t">
@@ -89,8 +89,8 @@ const Skills = () => {
                   <Image
                     src={s.image.url}
                     alt={s.image.caption}
-                    width={50}
-                    height={50}
+                    width={100}
+                    height={100}
                     className="SkillImage"
                   />
                 </Collapse>

@@ -1,3 +1,4 @@
+import { documentsService } from "@api/repositories";
 import {
   Box,
   Button,
@@ -8,7 +9,7 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useRef } from "react";
 import HomeImage from "../../../assets/home.jpeg";
 import { Container } from "./Home.styled";
 
@@ -17,11 +18,21 @@ export const Home = () => {
   const greaterOrEqualToSM = useMediaQuery(theme.breakpoints.up("sm"));
   const showText = greaterOrEqualToSM;
   const showContactBtn = greaterOrEqualToSM;
+  const pdfLinkRef = useRef<HTMLAnchorElement>(null);
+  const getCV = async () => {
+    const { binary, filename } = await documentsService.getCV();
+    const file = new Blob([binary], { type: "application/pdf" });
+    const fileURL = URL.createObjectURL(file);
+    pdfLinkRef.current && pdfLinkRef.current.setAttribute("href", fileURL);
+    pdfLinkRef.current && pdfLinkRef.current.setAttribute("download", filename);
+    pdfLinkRef.current && pdfLinkRef.current.click();
+  };
   return (
     <Container className="p-t p-b">
+      <Box sx={{ display: "none" }} ref={pdfLinkRef} component="a" />
       <Box className="ImageContainer">
         <Image
-          src="/home.png"
+          src="/images/home.jpg"
           alt="asis"
           width={500}
           height={800}
@@ -42,7 +53,11 @@ export const Home = () => {
           </Typography>
         )}
         <Stack spacing={1} direction="row" className="Buttons">
-          <Button variant="contained" sx={{ width: "fit-content" }}>
+          <Button
+            variant="contained"
+            sx={{ width: "fit-content" }}
+            onClick={() => getCV()}
+          >
             Download CV
           </Button>
           {showContactBtn && (
