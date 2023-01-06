@@ -9,7 +9,6 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useRef } from "react";
 import HomeImage from "../../../assets/home.jpeg";
 import { Container } from "./Home.styled";
 
@@ -18,18 +17,18 @@ export const Home = () => {
   const greaterOrEqualToSM = useMediaQuery(theme.breakpoints.up("sm"));
   const showText = greaterOrEqualToSM;
   const showContactBtn = greaterOrEqualToSM;
-  const pdfLinkRef = useRef<HTMLAnchorElement>(null);
   const getCV = async () => {
     const { binary, filename } = await documentsService.getCV();
     const file = new Blob([binary], { type: "application/pdf" });
     const fileURL = URL.createObjectURL(file);
-    pdfLinkRef.current && pdfLinkRef.current.setAttribute("href", fileURL);
-    pdfLinkRef.current && pdfLinkRef.current.setAttribute("download", filename);
-    pdfLinkRef.current && pdfLinkRef.current.click();
+
+    const pdfLinkRef = document.createElement( "a" );
+    pdfLinkRef.setAttribute("href", fileURL);
+    pdfLinkRef.setAttribute("download", filename);
+    pdfLinkRef.click();
   };
   return (
     <Container className="p-t p-b">
-      <Box sx={{ display: "none" }} ref={pdfLinkRef} component="a" />
       <Box className="ImageContainer">
         <Image
           src="/images/home.jpg"

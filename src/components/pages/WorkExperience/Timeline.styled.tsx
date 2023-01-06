@@ -8,7 +8,7 @@ export const Container = styled(Box)(() => ({
   margin: "0 auto",
   // ...measuresTitleT.build(),
 }));
-const offset = "-10px";
+const offset = "-9.5px";
 export const CardContainer = styled(Box)(({ theme }) => ({
   position: "relative",
   maxWidth: "900px",

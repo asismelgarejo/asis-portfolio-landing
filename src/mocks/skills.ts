@@ -19,12 +19,12 @@ export const SKILLS: Skill[] = [
       url: "/icons/nestjs.svg",
       caption: "Nest.js",
     },
-    domain: 0.4,
+    domain: 0.6,
     color: "#EA2845"
   },
   {
     _id: "63a290612a886463145e9a7c",
-    name: "Postman.js",
+    name: "Postman",
     image: {
       url: "/icons/postman.svg",
       caption: "Postman",
@@ -44,7 +44,7 @@ export const SKILLS: Skill[] = [
   },
   {
     _id: "63a2906f5265dd876151ef8f",
-    name: "Typscript",
+    name: "Typescript",
     image: {
       url: "/icons/ts.svg",
       caption: "Typescript",
@@ -149,7 +149,7 @@ export const SKILLS: Skill[] = [
       url: "/icons/graphql.svg",
       caption: "GraphQL",
     },
-    domain: 0.4,
+    domain: 0.5,
     color: "#E10098"
   },
   {
@@ -159,7 +159,7 @@ export const SKILLS: Skill[] = [
       url: "/icons/java.svg",
       caption: "Java",
     },
-    domain: 0.4,
+    domain: 0.1,
     color: "#E10098"
   },
   {
@@ -169,7 +169,7 @@ export const SKILLS: Skill[] = [
       url: "/icons/spring.svg",
       caption: "Spring Boot",
     },
-    domain: 0.4,
+    domain: 0.1,
     color: "#E10098"
   },
   {
@@ -179,7 +179,7 @@ export const SKILLS: Skill[] = [
       url: "/icons/kotlin.svg",
       caption: "Kotlin",
     },
-    domain: 0.4,
+    domain: 0.1,
     color: "#E10098"
   },
   {
@@ -189,7 +189,117 @@ export const SKILLS: Skill[] = [
       url: "/icons/gingonic.png",
       caption: "Gin",
     },
+    domain: 0.1,
+    color: "#E10098"
+  },
+  {
+    _id: "63b787f8dcc429c6e5fb44ec",
+    name: "Mongoose",
+    image: {
+      url: "/icons/mongoose.png",
+      caption: "Gin",
+    },
+    domain: 0.5,
+    color: "#E10098"
+  },
+  {
+    _id: "63b789a20d774867ead230d2",
+    name: "Socket.io",
+    image: {
+      url: "/icons/socketio.svg",
+      caption: "Socket.io",
+    },
+    domain: 0.5,
+    color: "#E10098"
+  },
+  {
+    _id: "63b78b0c21efa47529745106",
+    name: "React Query",
+    image: {
+      url: "/icons/react-query.svg",
+      caption: "React Query",
+    },
+    domain: 0.6,
+    color: "#E10098"
+  },
+  {
+    _id: "63b78bd249c1e0735a81fc37",
+    name: "Amazon EC2",
+    image: {
+      url: "/icons/amazon-ec2.svg",
+      caption: "Amazon EC2",
+    },
     domain: 0.4,
     color: "#E10098"
   },
-];
+  {
+    _id: "63b78bece38a0fb6cefe554e",
+    name: "Amazon ECS",
+    image: {
+      url: "/icons/amazon-ecs.svg",
+      caption: "Amazon ECS",
+    },
+    domain: 0.2,
+    color: "#E10098"
+  },
+  {
+    _id: "63b78c1076127c33fe5e772f",
+    name: "Amazon RDS",
+    image: {
+      url: "/icons/amazon-rds.svg",
+      caption: "Amazon RDS",
+    },
+    domain: 0.1,
+    color: "#E10098"
+  },
+  {
+    _id: "63b78c76630d3f56aecb9fc7",
+    name: "Amazon S3",
+    image: {
+      url: "/icons/amazon-s3.png",
+      caption: "Amazon S3",
+    },
+    domain: 0.2,
+    color: "#E10098"
+  },
+  {
+    _id: "63b78cfe273c167b59d88825",
+    name: "Flutter",
+    image: {
+      url: "/icons/flutter.svg",
+      caption: "Flutter",
+    },
+    domain: 0.3,
+    color: "#E10098"
+  },
+  {
+    _id: "63b78d7ce664553063a59c1c",
+    name: "Axios",
+    image: {
+      url: "/icons/axios.svg",
+      caption: "Axios",
+    },
+    domain: 0.6,
+    color: "#E10098"
+  },
+  {
+    _id: "63b79296018b5a324935c6f8",
+    name: "Next.js",
+    image: {
+      url: "/icons/next-js.svg",
+      caption: "Next.js",
+    },
+    domain: 0.6,
+    color: "#E10098"
+  },
+  {
+    _id: "63b79365d40eafd8d3862a4c",
+    name: "Framer Motion",
+    image: {
+      url: "/icons/framer-motion.png",
+      caption: "Framer Motion",
+    },
+    domain: 0.5,
+    color: "#E10098"
+  },
+].sort((a,b)=>b.domain-a.domain);

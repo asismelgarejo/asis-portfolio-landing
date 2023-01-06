@@ -63,7 +63,7 @@ export const Docs = styled(Box)<BoxProps>(({ theme }) => ({
   },
 }));
 export const CardDoc = styled(Card)<CardProps>(({ theme }) => ({
-  height: "fit-content",
+  height: "100%",
   width: "100%",
   minHeight: "200px",
   display: "flex",

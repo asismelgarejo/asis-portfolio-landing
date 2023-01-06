@@ -5,6 +5,6 @@ export interface EducationAndCertification {
     url: string;
     label: string;
   };
-  start_date: Date;
+  start_date?: Date;
   end_date: Date;
 }

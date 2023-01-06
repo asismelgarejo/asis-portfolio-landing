@@ -10,56 +10,15 @@ export const EDUCATION_AND_CERTIFICATIONS: EducationAndCertification[] = [
       url: "/images/unjfsc_logo.png",
     },
     start_date: new Date(2018, 9, 2),
-    end_date: new Date(2023, 1, 1),
+    end_date: new Date(2023, 11, 29),
   },
   {
-    _id: uuidv4(),
-    title: "System Engineering",
+    _id: "63b78e487abfe21f6bb6c13e",
+    title: "AWS Certified Cloud Practitioner",
     image: {
-      label: "UNJSC",
-      url: "/images/unjfsc_logo.png",
+      label: "AWS Certified Cloud Practitioner",
+      url: "/certs/aws-cloud-practitioner.png",
     },
-    start_date: new Date(),
-    end_date: new Date(),
-  },
-  {
-    _id: uuidv4(),
-    title: "System Engineering",
-    image: {
-      label: "UNJSC",
-      url: "/images/unjfsc_logo.png",
-    },
-    start_date: new Date(),
-    end_date: new Date(),
-  },
-  {
-    _id: uuidv4(),
-    title: "System Engineering",
-    image: {
-      label: "UNJSC",
-      url: "/images/unjfsc_logo.png",
-    },
-    start_date: new Date(),
-    end_date: new Date(),
-  },
-  {
-    _id: uuidv4(),
-    title: "System Engineering",
-    image: {
-      label: "UNJSC",
-      url: "/images/unjfsc_logo.png",
-    },
-    start_date: new Date(),
-    end_date: new Date(),
-  },
-  {
-    _id: uuidv4(),
-    title: "System Engineering",
-    image: {
-      label: "UNJSC",
-      url: "/images/unjfsc_logo.png",
-    },
-    start_date: new Date(),
-    end_date: new Date(),
+    end_date: new Date(2023, 9, 1),
   },
 ];

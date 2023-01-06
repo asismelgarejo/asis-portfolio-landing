@@ -29,7 +29,7 @@ const Skills = () => {
   const [skillId, setSkillId] = useState("");
 
   const [skills, setSkills] = useState<Skill[][]>([]);
-  const PERPAGE = 10;
+  const PERPAGE = 15;
 
   const transformIntoArrayOfArrays = (): Skill[][] => {
     const s = Array.from({ length: Math.ceil(SKILLS.length / PERPAGE) }).reduce(
