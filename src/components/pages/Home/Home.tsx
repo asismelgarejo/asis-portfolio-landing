@@ -18,14 +18,17 @@ export const Home = () => {
   const showText = greaterOrEqualToSM;
   const showContactBtn = greaterOrEqualToSM;
   const getCV = async () => {
+    alert("WORKING!S");
     const { binary, filename } = await documentsService.getCV();
     const file = new Blob([binary], { type: "application/pdf" });
     const fileURL = URL.createObjectURL(file);
 
-    const pdfLinkRef = document.createElement( "a" );
+    const pdfLinkRef = document.createElement("a");
     pdfLinkRef.setAttribute("href", fileURL);
     pdfLinkRef.setAttribute("download", filename);
     pdfLinkRef.click();
+    // document.body.removeChild(pdfLinkRef);
+    alert("WORKING!F");
   };
   return (
     <Container className="p-t p-b">
