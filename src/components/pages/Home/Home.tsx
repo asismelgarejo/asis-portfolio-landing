@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
+import { useRef } from "react";
 import HomeImage from "../../../assets/home.jpeg";
 import { Container } from "./Home.styled";
 
@@ -17,21 +18,28 @@ export const Home = () => {
   const greaterOrEqualToSM = useMediaQuery(theme.breakpoints.up("sm"));
   const showText = greaterOrEqualToSM;
   const showContactBtn = greaterOrEqualToSM;
+  const pdfLinkRef = useRef<HTMLAnchorElement>(null);
+
   const getCV = async () => {
     alert("WORKING!S");
     const { binary, filename } = await documentsService.getCV();
     const file = new Blob([binary], { type: "application/pdf" });
     const fileURL = URL.createObjectURL(file);
 
-    const pdfLinkRef = await document.createElement("a");
-    await pdfLinkRef.setAttribute("href", fileURL);
-    await pdfLinkRef.setAttribute("download", filename);
-    await pdfLinkRef.click();
+    // const pdfLinkRef = await document.createElement("a");
+    // await pdfLinkRef.setAttribute("href", fileURL);
+    // await pdfLinkRef.setAttribute("download", filename);
+    // await pdfLinkRef.click();
+     // const pdfLinkRef = await document.createElement("a");
+    pdfLinkRef.current && pdfLinkRef.current.setAttribute("href", fileURL);
+    pdfLinkRef.current && pdfLinkRef.current.setAttribute("download", filename);
+    pdfLinkRef.current && pdfLinkRef.current.click();
     // document.body.removeChild(pdfLinkRef);
     alert("WORKING!F");
   };
   return (
     <Container className="p-t p-b">
+      <a ref={pdfLinkRef} style={{ display: "none" }} />
       <Box className="ImageContainer">
         <Image
           src="/images/home.jpg"
