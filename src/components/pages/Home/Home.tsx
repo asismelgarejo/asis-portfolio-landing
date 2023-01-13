@@ -23,10 +23,10 @@ export const Home = () => {
     const file = new Blob([binary], { type: "application/pdf" });
     const fileURL = URL.createObjectURL(file);
 
-    const pdfLinkRef = document.createElement("a");
-    pdfLinkRef.setAttribute("href", fileURL);
-    pdfLinkRef.setAttribute("download", filename);
-    pdfLinkRef.click();
+    const pdfLinkRef = await document.createElement("a");
+    await pdfLinkRef.setAttribute("href", fileURL);
+    await pdfLinkRef.setAttribute("download", filename);
+    await pdfLinkRef.click();
     // document.body.removeChild(pdfLinkRef);
     alert("WORKING!F");
   };
@@ -58,7 +58,7 @@ export const Home = () => {
           <Button
             variant="contained"
             sx={{ width: "fit-content" }}
-            onClick={() => getCV()}
+            onClick={async () => await getCV()}
           >
             Download CV
           </Button>
