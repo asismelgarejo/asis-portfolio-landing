@@ -12,7 +12,7 @@ const queryClient = new QueryClient();
 
 const AllContexts: React.FC<AllContextsProps> = ({ children }) => {
   return (
-    <SnackbarProvider maxSnack={3}>
+    <SnackbarProvider>
       <QueryClientProvider client={queryClient}>
         <ThemeContextProvider>
           <ActiveSectionContextProvider>

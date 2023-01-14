@@ -7,3 +7,6 @@ export interface Response<T> {
   data: T;
   success: boolean;
 }
+export interface CommonError {
+  message: string;
+}

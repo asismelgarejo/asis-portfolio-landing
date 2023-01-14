@@ -15,16 +15,44 @@ import { ContactForm, Container, Content, FormFields } from "./Contact.styled";
 import RocketAnimation from "../../../../public/lotties/rocket_circle.json";
 import { Controller, useForm } from "react-hook-form";
 import { useSnackbar } from "notistack";
+import { useMutationEmail } from "src/hooks/email.hooks";
+import { EmailPost } from "@api/models";
 
-type FormFields = {
-  fullName: string;
-  email: string;
-  subject: string;
-  description: string;
-};
+type EmailPayload = EmailPost;
+
 const Contact = () => {
   const { enqueueSnackbar } = useSnackbar();
   const { containerRef } = useActiveSection("contact");
+  const [defaultValues] = useState<EmailPayload>({
+    fullname: "",
+    email: "",
+    subject: "",
+    description: "",
+  });
+  const emailMutation = useMutationEmail({
+    onSuccess(data) {
+      console.log(data.success);
+      reset(defaultValues)
+      enqueueSnackbar("Email was sent successfully", {
+        variant: "success",
+        preventDuplicate: true,
+        anchorOrigin: {
+          vertical: "bottom",
+          horizontal: "left",
+        },
+      });
+    },
+    onError(error) {
+      enqueueSnackbar(error?.message ?? "", {
+        variant: "error",
+        preventDuplicate: true,
+        anchorOrigin: {
+          vertical: "bottom",
+          horizontal: "left",
+        },
+      });
+    },
+  });
   const [makeValidation, setMakeValidation] = useState(false);
   const { View } = useLottie({
     animationData: RocketAnimation,
@@ -36,25 +64,13 @@ const Contact = () => {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormFields>({
-    defaultValues: {
-      fullName: "",
-      email: "",
-      subject: "",
-      description: "",
-    },
+    reset,
+  } = useForm<EmailPayload>({
+    defaultValues,
   });
-  const onSubmit = handleSubmit(async (data: FormFields) => {
-    console.log(data);
-    enqueueSnackbar("Email was sent successfully", {
-      variant: "success",
-      preventDuplicate: true,
-      anchorOrigin: {
-        vertical: "bottom",
-        horizontal: "left",
-      },
-    });
-  });
+  const onSubmit = async (data: EmailPayload) => {
+    emailMutation.mutate(data);
+  };
 
   useEffect(() => {
     if (Object.keys(errors).length > 0) {
@@ -86,9 +102,9 @@ const Contact = () => {
               Get in touch with me filling the form and clicking the "SEND"
               button
             </Typography>
-            <FormFields component="form" onSubmit={onSubmit}>
+            <FormFields component="form" onSubmit={handleSubmit(onSubmit)}>
               <Controller
-                name="fullName"
+                name="fullname"
                 control={control}
                 rules={{
                   required: { value: true, message: "Este campo es requerido" },
@@ -100,8 +116,8 @@ const Contact = () => {
                     placeholder="Fullname"
                     value={value}
                     onChange={onChange}
-                    error={!!errors?.fullName}
-                    // helperText={errors.fullName?.message ?? ""}
+                    error={!!errors?.fullname}
+                    // helperText={errors.fullname?.message ?? ""}
                   />
                 )}
               />
@@ -146,15 +162,20 @@ const Contact = () => {
               <Controller
                 name="description"
                 control={control}
+                rules={{
+                  required: { value: true, message: "Este campo es requerido" },
+                }}
                 render={({ field: { onChange, value } }) => (
                   <TextField
                     size="small"
                     variant="outlined"
                     multiline
+                    name="description"
                     rows={4}
                     placeholder="Message..."
                     value={value}
                     onChange={onChange}
+                    error={!!errors?.description}
                   />
                 )}
               />
@@ -162,6 +183,7 @@ const Contact = () => {
                 variant="contained"
                 type="submit"
                 onClick={() => setMakeValidation((prev) => !prev)}
+                disabled={emailMutation.isLoading}
               >
                 Send
               </Button>
