@@ -65,9 +65,7 @@ export const Home = () => {
   const { View } = useLottie({
     animationData: HomeAnimation,
     loop: true,
-    style: {
-      width: "100%",
-    },
+    className: "Lottie",
   });
 
   // const getCV = async () => {

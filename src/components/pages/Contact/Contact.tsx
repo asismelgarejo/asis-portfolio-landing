@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { useActiveSection } from "@toolbox/hooks";
 import { useLottie } from "lottie-react";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { ContactForm, Container, Content, FormFields } from "./Contact.styled";
 import RocketAnimation from "../../../../public/lotties/rocket_circle.json";
 import { Controller, useForm } from "react-hook-form";
@@ -25,10 +25,11 @@ type FormFields = {
 const Contact = () => {
   const { enqueueSnackbar } = useSnackbar();
   const { containerRef } = useActiveSection("contact");
+  const [makeValidation, setMakeValidation] = useState(false);
   const { View } = useLottie({
     animationData: RocketAnimation,
     loop: true,
-    className: "LottieItem"
+    className: "LottieItem",
   });
 
   const {
@@ -45,7 +46,7 @@ const Contact = () => {
   });
   const onSubmit = handleSubmit(async (data: FormFields) => {
     console.log(data);
-    enqueueSnackbar("Complete all the fields", {
+    enqueueSnackbar("Email was sent successfully", {
       variant: "success",
       preventDuplicate: true,
       anchorOrigin: {
@@ -55,7 +56,18 @@ const Contact = () => {
     });
   });
 
-  // useEffect(() => {}, [errors]);
+  useEffect(() => {
+    if (Object.keys(errors).length > 0) {
+      enqueueSnackbar("Complete all the fields", {
+        variant: "error",
+        preventDuplicate: true,
+        anchorOrigin: {
+          vertical: "bottom",
+          horizontal: "left",
+        },
+      });
+    }
+  }, [makeValidation, errors]);
 
   return (
     <Container ref={containerRef} className="p-t p-b">
@@ -104,6 +116,7 @@ const Contact = () => {
                     size="small"
                     variant="outlined"
                     placeholder="Email"
+                    type="email"
                     value={value}
                     onChange={onChange}
                     error={!!errors?.email}
@@ -148,29 +161,14 @@ const Contact = () => {
               <Button
                 variant="contained"
                 type="submit"
-                onClick={() => {
-                  if (Object.keys(errors).length > 0) {
-                    enqueueSnackbar("Complete all the fields", {
-                      variant: "error",
-                      preventDuplicate: true,
-                      anchorOrigin: {
-                        vertical: "bottom",
-                        horizontal: "left",
-                      },
-                    });
-                  }
-                }}
+                onClick={() => setMakeValidation((prev) => !prev)}
               >
                 Send
               </Button>
             </FormFields>
           </CardContent>
         </ContactForm>
-        <Box
-        className="Lottie"
-        >
-          {View}
-        </Box>
+        <Box className="Lottie">{View}</Box>
       </Content>
     </Container>
   );

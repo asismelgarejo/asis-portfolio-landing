@@ -3,20 +3,20 @@ import { getBoxModel, WebsiteMeasureBuilder } from "@toolbox/helpers";
 const measuresHeader = new WebsiteMeasureBuilder().headerHeight();
 export const Container = styled(Box)(({ theme }) => ({
   display: "grid",
-  minHeight: `calc(100vh - ${measuresHeader.build().height}px)`,
+  height: `calc(100vh - ${measuresHeader.build().height}px)`,
   gridTemplateColumns: "1fr",
+  gridTemplateRows: "auto auto",
   //Adding global padding
   ...getBoxModel(theme).padding.pL().pR().build(),
   alignContent: "center",
   width: "100%",
-  ".Image":{
-    width: "100%",
-    height: "auto",
+  ".Lottie":{
+    width: "90%",
+    margin: "auto"
   },
   ".ImageContainer": {
     width: "100%",
-    height: "300px",
-    margin: "auto auto 16px",
+    margin: "auto",
     overflow: "hidden",
   },
   ".Content": {
@@ -29,8 +29,8 @@ export const Container = styled(Box)(({ theme }) => ({
   },
   [theme.breakpoints.up("sm")]: {
     ...getBoxModel(theme).padding.pL(0).pR(0).build(),
-    columnGap: "40px",
-    gridTemplateColumns: "auto 60%",
+    columnGap: "10px",
+    gridTemplateColumns: "45% 55%",
     // columnGap: "40px",
     ".Content": {
       textAlign: "left !important",
@@ -40,15 +40,14 @@ export const Container = styled(Box)(({ theme }) => ({
       height: "auto !important",
       margin: "auto",
     },
+    ".Lottie":{
+      width: "100%",
+    },
     ".Buttons": {
       justifyContent: "unset !important",
     },
   },
   [theme.breakpoints.up("md")]: {
-    ".ImageContainer": {
-      width: "90%",
-      height: "auto",
-      margin: "auto auto 0 0",
-    },
+    columnGap: "20px",
   },
 }));
