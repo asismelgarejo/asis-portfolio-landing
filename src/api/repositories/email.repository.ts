@@ -12,7 +12,8 @@ class EmailRepository {
       );
       return response.data;
     } catch (e: any) {
-      throw new Error("Error sending email");
+      console.log(e?.message)
+      throw new Error(e?.message ?? "Error sending email");
     }
   }
 }
