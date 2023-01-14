@@ -21,7 +21,7 @@ export default function Index() {
         <WorkExperience />
         <Skills />
         <Projects />
-        {/* <Contact /> */}
+        <Contact />
       </MainLayout>
     </div>
   );

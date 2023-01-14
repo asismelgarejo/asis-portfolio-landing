@@ -1,7 +1,8 @@
+import React from "react";
+import { SnackbarProvider } from "notistack";
 import { ThemeContextProvider } from "./ThemeContext";
 import { SettingContextProvider } from "./SettingSidebarContext";
 import { ActiveSectionContextProvider } from "./ActiveSectionContext";
-import React from "react";
 
 type AllContextsProps = {
   children: React.ReactNode;
@@ -9,11 +10,13 @@ type AllContextsProps = {
 
 const AllContexts: React.FC<AllContextsProps> = ({ children }) => {
   return (
-    <ThemeContextProvider>
-      <ActiveSectionContextProvider>
-        <SettingContextProvider>{children}</SettingContextProvider>
-      </ActiveSectionContextProvider>
-    </ThemeContextProvider>
+    <SnackbarProvider maxSnack={3}>
+      <ThemeContextProvider>
+        <ActiveSectionContextProvider>
+          <SettingContextProvider>{children}</SettingContextProvider>
+        </ActiveSectionContextProvider>
+      </ThemeContextProvider>
+    </SnackbarProvider>
   );
 };
 

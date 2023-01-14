@@ -1,44 +1,54 @@
 import { Box, BoxProps, styled } from "@mui/material";
-import { WebsiteMeasureBuilder } from "@toolbox/helpers";
-// const measures = new WebsiteMeasureBuilder().mB().mT();
-// const measuresTitle = new WebsiteMeasureBuilder().mTitleB(10);
+import { getBoxModel, WebsiteMeasureBuilder } from "@toolbox/helpers";
 const measuresHeader = new WebsiteMeasureBuilder().headerHeight();
+
 export const Container = styled(Box)<BoxProps>(({ theme }) => ({
-  minHeight: `calc(100vh - ${measuresHeader.build().height}px)`,
-  // ...measures.build(),
   display: "flex",
-  flexDirection:"column",
+  flexDirection: "column",
   padding: "6em 0",
+  ...getBoxModel(theme).padding.pL().pR().build(),
+  [theme.breakpoints.up("sm")]: {
+    minHeight: `calc(100vh - ${measuresHeader.build().height}px)`,
+    ...getBoxModel(theme).padding.pL(0).pR(0).build(),
+  },
 }));
 export const Content = styled(Box)<BoxProps>(({ theme }) => ({
-  border: `4px solid ${theme.palette.grey[500]}`,
-  // padding: "1em",
   width: "100%",
   flexGrow: 1,
   display: "grid",
-  gridTemplateColumns: "1fr 1fr",
-  columnGap: "4px",
-  background: theme.palette.grey[500],
-}));
-export const ContactInfo = styled(Box)<BoxProps>(({ theme }) => ({
-  background: theme.palette.background.paper,
-  display: "flex",
-  flexDirection: "column",
-  ".TitleSection":{
-    // ...measuresTitle.build(),
+  gridTemplateColumns: "1fr",
+  gridTemplateRows: "auto auto",
+  columnGap: "10px",
+  ".Lottie": {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gridColumn: "1 / -1",
+    // gridRow: "1 / 2",
   },
-  ".SocialNetworks":{
-    background: theme.palette.background.default,
-    minHeight: "100px",
-    maxHeight: "fit-content",
-    width: "100%",
-    marginTop: "auto",
-    // flexGrow: 1
-  }
-
+  ".Lottie .LottieItem": {
+    width: "30%",
+  },
+  ".ContactForm": {
+    gridColumn: "1 / -1",
+    // gridRow: "2 / -1",
+  },
+  [theme.breakpoints.up("md")]: {
+    gridTemplateColumns: "1fr 1fr",
+    gridTemplateRows: "auto",
+    ".Lottie": {
+      gridColumn: "2 / -1",
+    },
+    ".Lottie .LottieItem": {
+      width: "80%",
+    },
+    ".ContactForm": {
+      gridColumn: "1 / 2",
+    },
+  },
 }));
 export const ContactForm = styled(Box)<BoxProps>(({ theme }) => ({
-  background: theme.palette.background.paper,
+  background: theme.palette.background.default,
 }));
 export const FormFields = styled(Box)<BoxProps>(({ theme }) => ({
   marginTop: "1em",

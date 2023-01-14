@@ -13,7 +13,7 @@ export const HolderAnchor: React.FC<{_id: string}> = ({_id}) => {
         id={_id}
         style={{
           position: "absolute",
-          top: `-${headeheight+40}px`,
+          top: `-${headeheight+10}px`,
         }}
       ></span>
     </div>

@@ -65,6 +65,15 @@ export const darkTheme: ThemeOptions = {
           fontSize: ".8em"
         }
       },
+    },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          ".MuiOutlinedInput-root":{
+            fontSize: "17px",
+          }
+        }
+      },
     }
   },
 };

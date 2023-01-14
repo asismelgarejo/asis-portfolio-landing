@@ -1,10 +1,6 @@
 import { Box, BoxProps, Card, CardProps, styled } from "@mui/material";
 import { getBoxModel, WebsiteMeasureBuilder } from "@toolbox/helpers";
-// const measures = new WebsiteMeasureBuilder().mB().mT();
-// const measuresTitle = new WebsiteMeasureBuilder().mTitleB();
 const measuresHeader = new WebsiteMeasureBuilder().headerHeight();
-// const measuresTitleT = new WebsiteMeasureBuilder().mTitleT();
-
 export const Container = styled(Box)<BoxProps>(({ theme }) => ({
   ".TitleSection": {
     //Adding global padding
