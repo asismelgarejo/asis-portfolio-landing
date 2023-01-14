@@ -31,11 +31,11 @@ const Contact = () => {
   });
   const emailMutation = useMutationEmail({
     onSuccess(data) {
-      console.log(data.success);
       reset(defaultValues)
       enqueueSnackbar("Email was sent successfully", {
         variant: "success",
         preventDuplicate: true,
+        autoHideDuration: 1000,
         anchorOrigin: {
           vertical: "bottom",
           horizontal: "left",
@@ -46,6 +46,7 @@ const Contact = () => {
       enqueueSnackbar(error?.message ?? "", {
         variant: "error",
         preventDuplicate: true,
+        autoHideDuration: 1000,
         anchorOrigin: {
           vertical: "bottom",
           horizontal: "left",
@@ -76,7 +77,8 @@ const Contact = () => {
     if (Object.keys(errors).length > 0) {
       enqueueSnackbar("Complete all the fields", {
         variant: "error",
-        preventDuplicate: true,
+        preventDuplicate: false,
+        autoHideDuration: 1000,
         anchorOrigin: {
           vertical: "bottom",
           horizontal: "left",
