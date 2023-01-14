@@ -9,20 +9,31 @@ import {
   useTheme,
 } from "@mui/material";
 import { useActiveSection } from "@toolbox/hooks";
-import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
-import HomeImage from "../../../assets/home.jpeg";
 import { Container } from "./Home.styled";
+import { useLottie } from "lottie-react";
+import HomeAnimation from "../../../../public/lotties/home.json";
+import { useEffect, useState } from "react";
 
 export const Home = () => {
   const theme = useTheme();
   const { containerRef } = useActiveSection("about-me");
-
+  const [text, setText] = useState("");
+  const [fullText] = useState(
+    "   Full Stack Web and Mobile Developer   "
+  );
+  const [index, setIndex] = useState(2);
+  const [loop, setLoop] = useState({ reverse: false, goal: fullText.length });
   const greaterOrEqualToSM = useMediaQuery(theme.breakpoints.up("sm"));
   const showText = greaterOrEqualToSM;
   const showContactBtn = greaterOrEqualToSM;
-  const pdfLinkRef = useRef<HTMLAnchorElement>(null);
+  const { View } = useLottie({
+    animationData: HomeAnimation,
+    loop: true,
+    style: {
+      width: "100%",
+    },
+  });
 
   const getCV = async () => {
     // alert("WORKING!S");
@@ -40,23 +51,45 @@ export const Home = () => {
     // document.body.removeChild(pdfLinkRef);
     alert("WORKING!F");
   };
+
+  useEffect(() => {
+    // if (index < fullText.length) {
+    const myTimeout = setTimeout(() => {
+      let nI = index;
+      let t = text;
+      setText(fullText.slice(0, nI));
+      // else setReverse(false);
+      if (loop.reverse) nI--;
+      else nI++;
+      setIndex(nI);
+      if (nI === loop.goal) {
+        setLoop({
+          reverse: !loop.reverse,
+          goal: loop.goal === 0 ? fullText.length : 0,
+        });
+      }
+    }, 60);
+    return () => clearTimeout(myTimeout);
+  }, [index]);
+
   return (
     <Container className="p-t p-b" ref={containerRef}>
       <Box className="ImageContainer">
-        <Image
+        {View}
+        {/* <Image
           src="/images/home.jpg"
           alt="asis"
           width={500}
           height={800}
           className="Image"
-        />
+        /> */}
       </Box>
       <Box className="Content" component={Stack} spacing={2}>
         <Typography component="h1" variant="h1">
           Asis Melgarejo
         </Typography>
         <Typography component="h2" variant="h3">
-          Full Stack Web and Mobile Developer
+          {text}&ensp;
         </Typography>
         {showText && (
           <Typography component="p" variant="h5">
