@@ -1,5 +1,4 @@
 import { Box, Divider, Typography } from "@mui/material";
-// import { getTotalOffset, screenScrollTo } from "@toolbox/helpers";
 import Link from "next/link";
 import React from "react";
 import { LINKS, SOCIAL_NETWORKS } from "src/mocks";
@@ -17,7 +16,6 @@ export const MainFooter = () => {
             variant="h6"
             className="Link"
             key={l._id}
-            // onClick={() => screenScrollTo(getTotalOffset(l._id))}
             component={Link}
             href={`#${l.url}`}
           >
