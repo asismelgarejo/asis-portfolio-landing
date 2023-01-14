@@ -11,6 +11,7 @@ export const Container = styled(Box)(({ theme }) => ({
   alignItems: "center",
   gridColumn: "1 / 2",
   gridRow: "1 / -1",
+  width: "fit-content",
 }));
 export const NavigationBar = styled(Box)(({ theme }) => ({
   fontSize: "1.3em",
@@ -19,7 +20,7 @@ export const NavigationBar = styled(Box)(({ theme }) => ({
   background: theme.palette.grey[300],
   display: "grid",
   gridTemplateColumns: "1fr",
-  gridTemplateRows: "auto 3.125em",
+  gridTemplateRows: "auto auto 3.125em",
   rowGap: "1px",
   margin: "auto 0",
   padding: 0,

@@ -8,6 +8,7 @@ import {
     Article as BlogIcon,
     School as SchoolIcon,
   } from "@mui/icons-material";
+
   export const ICONS = {
     SettingsIcon,
     UserIcon,

@@ -8,12 +8,13 @@ import WorkExperience from "@components/pages/WorkExperience/WorkExperience";
 import Skills from "@components/pages/Skills/Skills";
 import Projects from "@components/pages/Projects/Projects";
 import Contact from "@components/pages/Contact/Contact";
+import { LINKS } from "@mocks/links";
 // import styles from '../styles/Home.module.css'
 
 export default function Index() {
   return (
     <div>
-      <MainLayout>
+      <MainLayout links={LINKS}>
         <Home />
         <AboutMe />
         <EducationAndCertifications />

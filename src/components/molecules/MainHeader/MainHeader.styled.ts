@@ -17,7 +17,7 @@ export const CustomAppBar = styled(AppBar, {
         background: "rgba(41,41,41,.3)",
       }
     : {}),
-    
+
   ".progress-bar": {
     position: "fixed",
     top: "0",
@@ -41,23 +41,31 @@ export const Menus = styled(Box)(({ theme }) => ({
   height: "100%",
   display: "flex",
   alignItems: "center",
+  ".Active": {
+    background: theme.palette.secondary.main,
+  },
+  ".Menu": {
+    padding: "0 1em",
+    height: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
 }));
 
 type MenuProps = BoxProps & {
   active: boolean;
 } & LinkProps;
 
-export const Menu = styled(Box, {
-  shouldForwardProp: (prop) => prop !== "active",
-})<MenuProps>(({ theme, active }) => ({
-  padding: "0 1em",
-  height: "100%",
-  ...(active
-    ? {
-        background: theme.palette.secondary.main,
-      }
-    : {}),
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-}));
+// export const Menu = styled(Box, {
+//   shouldForwardProp: (prop) => prop !== "active",
+// })<MenuProps>(({ theme, active }) => ({
+//   padding: "0 1em",
+//   height: "100%",
+//   ...(active
+//     ? {
+//         background: theme.palette.secondary.main,
+//       }
+//     : {}),
+
+// }));

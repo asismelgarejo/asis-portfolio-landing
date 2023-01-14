@@ -36,7 +36,7 @@ export const Children = styled(Box)<BoxProps>(({ theme }) => ({
   columnGap: "40px",
 
   [theme.breakpoints.up("md")]: {
-    gridTemplateColumns: "auto auto",
+    gridTemplateColumns: "65px auto",
   },
   [theme.breakpoints.up("sm")]: {
     ...getBoxModel(theme).padding.pL().pR().build(),

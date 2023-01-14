@@ -1,4 +1,5 @@
 import { documentsService } from "@api/repositories";
+import { HolderAnchor } from "@components/atoms";
 import {
   Box,
   Button,
@@ -7,6 +8,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
+import { useActiveSection } from "@toolbox/hooks";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
@@ -15,31 +17,31 @@ import { Container } from "./Home.styled";
 
 export const Home = () => {
   const theme = useTheme();
+  const { containerRef } = useActiveSection("about-me");
+
   const greaterOrEqualToSM = useMediaQuery(theme.breakpoints.up("sm"));
   const showText = greaterOrEqualToSM;
   const showContactBtn = greaterOrEqualToSM;
   const pdfLinkRef = useRef<HTMLAnchorElement>(null);
 
   const getCV = async () => {
-    alert("WORKING!S");
+    // alert("WORKING!S");
     const { binary, filename } = await documentsService.getCV();
     const file = new Blob([binary], { type: "application/pdf" });
     const fileURL = URL.createObjectURL(file);
 
-    // const pdfLinkRef = await document.createElement("a");
-    // await pdfLinkRef.setAttribute("href", fileURL);
-    // await pdfLinkRef.setAttribute("download", filename);
-    // await pdfLinkRef.click();
-     // const pdfLinkRef = await document.createElement("a");
-    pdfLinkRef.current && pdfLinkRef.current.setAttribute("href", fileURL);
-    pdfLinkRef.current && pdfLinkRef.current.setAttribute("download", filename);
-    pdfLinkRef.current && pdfLinkRef.current.click();
+    const pdfLinkRef = document.createElement("a");
+    pdfLinkRef.setAttribute("href", fileURL);
+    pdfLinkRef.setAttribute("download", filename);
+    pdfLinkRef.click();
+    // pdfLinkRef.current && pdfLinkRef.current.setAttribute("href", fileURL);
+    // pdfLinkRef.current && pdfLinkRef.current.setAttribute("download", filename);
+    // pdfLinkRef.current && pdfLinkRef.current.click();
     // document.body.removeChild(pdfLinkRef);
     alert("WORKING!F");
   };
   return (
-    <Container className="p-t p-b">
-      <a ref={pdfLinkRef} style={{ display: "none" }} />
+    <Container className="p-t p-b" ref={containerRef}>
       <Box className="ImageContainer">
         <Image
           src="/images/home.jpg"

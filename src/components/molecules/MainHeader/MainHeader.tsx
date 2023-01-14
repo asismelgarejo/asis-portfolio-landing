@@ -9,12 +9,13 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { LogoDev as LogoDevIcon } from "@mui/icons-material/";
-import { CustomAppBar, Menu, Menus, CustomToolbar } from "./MainHeader.styled";
+import { CustomAppBar, Menus, CustomToolbar } from "./MainHeader.styled";
 import Link from "next/link";
 import { motion, useScroll } from "framer-motion";
 import { WebsiteMeasureBuilder } from "@toolbox/helpers";
 import { MobileMenuSidebar } from "@components/organisms";
 import { LINKS, PAGE_LINKS } from "@mocks/links";
+import { ActiveLink } from "@components/atoms";
 const measuresHeader = new WebsiteMeasureBuilder().headerHeight();
 export const MainHeader = () => {
   const { scrollYProgress } = useScroll();
@@ -37,14 +38,14 @@ export const MainHeader = () => {
           {isMobile && (
             <Menus>
               {PAGE_LINKS.map((pl) => (
-                <Menu
-                  active={pl.url === "/"}
-                  component={Link}
-                  href={`/${pl.url}`}
+                <ActiveLink
+                  activeClassName="Active"
+                  className="Menu"
+                  href={pl.url}
                   key={pl._id}
                 >
                   <Typography>{pl.name}</Typography>
-                </Menu>
+                </ActiveLink>
               ))}
             </Menus>
           )}

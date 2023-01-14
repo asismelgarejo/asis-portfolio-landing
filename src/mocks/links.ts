@@ -1,6 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
 import { Link } from "@api/models";
-import { ICONS } from "@toolbox/constants/icons";
 
 export const PAGE_LINKS: Link[] = [
   {
@@ -18,6 +17,12 @@ export const PAGE_LINKS: Link[] = [
 ]
 
 export const LINKS: Link[] = [
+  // {
+  //   _id: uuidv4(),
+  //   name: "Home",
+  //   icon: "HomeIcon",
+  //   url: "home",
+  // },
   {
     _id: uuidv4(),
     name: "About me",
@@ -54,4 +59,13 @@ export const LINKS: Link[] = [
     icon: "ContactIcon",
     url: "contact",
   },
+];
+
+export const BLOG_LINKS: Link[] = [
+  // {
+  //   _id: uuidv4(),
+  //   name: "About me",
+  //   icon: "UserIcon",
+  //   url: "about-me",
+  // },
 ];
