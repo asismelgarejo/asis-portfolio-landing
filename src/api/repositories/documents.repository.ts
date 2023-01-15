@@ -23,7 +23,6 @@ class DocumentsRepository {
         data: { binary, filename },
       };
     } catch (e: any) {
-      console.log(e?.message)
       throw new Error(e?.message ?? "Couldn't download CV");
     }
   }

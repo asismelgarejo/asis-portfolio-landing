@@ -31,11 +31,11 @@ const Contact = () => {
   });
   const emailMutation = useMutationEmail({
     onSuccess(data) {
-      reset(defaultValues)
+      reset({...defaultValues, email: getValues("email")})
       enqueueSnackbar("Email was sent successfully", {
         variant: "success",
         preventDuplicate: true,
-        autoHideDuration: 1000,
+        autoHideDuration: 3000,
         anchorOrigin: {
           vertical: "bottom",
           horizontal: "left",
@@ -66,6 +66,7 @@ const Contact = () => {
     handleSubmit,
     formState: { errors },
     reset,
+    getValues,
   } = useForm<EmailPayload>({
     defaultValues,
   });

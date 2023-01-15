@@ -37,6 +37,7 @@ export const Home = () => {
       enqueueSnackbar("CV downloaded", {
         variant: "success",
         preventDuplicate: true,
+        autoHideDuration: 1200,
         anchorOrigin: {
           vertical: "bottom",
           horizontal: "left",
