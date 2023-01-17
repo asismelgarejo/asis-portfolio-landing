@@ -16,8 +16,8 @@ export const useCV = (
   });
 };
 export const saveVisit = () => {
-  return useQuery({
-    queryKey: ["visit"],
-    queryFn: () => documentsService.saveVisit(),
+  return useMutation({
+    mutationKey: ["visit"],
+    mutationFn: () => documentsService.saveVisit(),
   });
 };

@@ -1,5 +1,3 @@
-import { documentsService } from "@api/repositories";
-import { HolderAnchor } from "@components/atoms";
 import {
   Box,
   Button,
@@ -21,7 +19,7 @@ import { saveVisit, useCV } from "src/hooks";
 export const Home = () => {
   const theme = useTheme();
   const { enqueueSnackbar } = useSnackbar();
-  saveVisit();
+  const visitMutation = saveVisit();
   // if(){
   //   enqueueSnackbar("Thanks for visiting", {
   //     variant: "success",
@@ -97,6 +95,9 @@ export const Home = () => {
     return () => clearTimeout(myTimeout);
   }, [index]);
 
+  useEffect(() => {
+    visitMutation.mutate();
+  }, []);
   return (
     <Container className="p-t p-b" ref={containerRef}>
       <Box className="ImageContainer">
