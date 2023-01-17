@@ -15,7 +15,7 @@ import { motion } from "framer-motion";
 import React from "react";
 import { ContainerForMobile } from "./ContainerForMobile";
 import { ProjectCard } from "./ProjectCard";
-import { Cards, Container } from "./Projects.styled";
+import { Cards, Container, ProjectCardStyled } from "./Projects.styled";
 
 type ContainerForNoMobileProps = {
   projects: Project[];
@@ -23,19 +23,50 @@ type ContainerForNoMobileProps = {
 const ContainerForNoMobile: React.FC<ContainerForNoMobileProps> = ({
   projects,
 }) => {
-  const { cards } = useSpreadCardAnimations();
+
+  const projectsAnimation= {
+    loading: {
+      transition: { staggerChildren: 0.15, delayChildren: 0.2, delay: 100 },
+    },
+    loaded: {
+      transition: { staggerChildren: 0.15 },
+    },
+  };
+
+  const projectAnimation = {
+    loading: {
+      opacity: 0,
+      x: -10,
+      transition: {
+        x: { stiffness: 1000, velocity: -100 },
+        opacity: { duration: 1 },
+      },
+    },
+    loaded: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        x: { stiffness: 1000 },
+        opacity: { duration: 1 },
+      },
+    },
+  };
+
   return (
-    <Cards
-      component={motion.div}
+    <motion.div
       initial="loading"
       whileInView="loaded"
-      variants={cards}
-      className="TitleSection m-t-t"
+      variants={projectsAnimation}
+      style={{ width: "100%" }}
     >
-      {projects.map((p) => (
-        <ProjectCard key={p._id} project={p} />
-      ))}
-    </Cards>
+      <Cards className="TitleSection m-t-t">
+        {projects.map((p) => (
+          <ProjectCardStyled component={motion.div} key={p._id} variant={projectAnimation}>
+            <ProjectCard project={p} />
+          </ProjectCardStyled>
+        ))}
+      </Cards>
+    </motion.div>
   );
 };
 

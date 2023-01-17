@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 
 import { Pagination } from "swiper";
 import { Project } from "@api/models";
-import { ContainerMobile } from "./Projects.styled";
+import { ContainerMobile, ProjectCardStyled } from "./Projects.styled";
 import { ProjectCard } from "./ProjectCard";
 
 type ContainerForMobileProps = {
@@ -23,7 +23,9 @@ export const ContainerForMobile: React.FC<ContainerForMobileProps> = ({
       <Swiper pagination={true} modules={[Pagination]} spaceBetween={10}>
         {projects.map((p) => (
           <SwiperSlide key={p._id} className="SwiperSlide">
-            <ProjectCard project={p} />
+            <ProjectCardStyled>
+              <ProjectCard project={p} />
+            </ProjectCardStyled>
           </SwiperSlide>
         ))}
         <Box sx={{ height: 40 }} />

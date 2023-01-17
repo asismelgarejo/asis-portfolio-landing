@@ -43,12 +43,12 @@ export const ProjectCardStyled = styled(Card)<any>(({ theme }) => ({
   width: "100%",
   maxWidth: "100%",
   textAlign: "left",
-  "&:nth-of-type(2n+1)": {
-    gridColumn: "1 / 2",
-  },
-  "&:nth-of-type(2n+2)": {
-    gridColumn: "3 / 4",
-  },
+  // "&:nth-of-type(2n+1)": {
+  //   gridColumn: "1 / 2",
+  // },
+  // "&:nth-of-type(2n+2)": {
+  //   gridColumn: "3 / 4",
+  // },
   ".Buttons": {
     display: "grid",
     gridTemplateColumns: "1fr minmax(30px, auto) 1fr",

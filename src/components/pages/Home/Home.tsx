@@ -140,6 +140,7 @@ export const Home = () => {
             variant="contained"
             sx={{ width: "fit-content" }}
             onClick={() => cvMutation.mutate()}
+            disabled={cvMutation.isLoading}
           >
             Download CV
           </Button>
