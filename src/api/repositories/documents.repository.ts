@@ -26,6 +26,17 @@ class DocumentsRepository {
       throw new Error(e?.message ?? "Couldn't download CV");
     }
   }
+  async saveVisit() {
+    try {
+      const response = await this.api.get<{ success: true }>(
+        "/documents/save-visit"
+      );
+
+      return response.data;
+    } catch (e: any) {
+      throw new Error(e?.message);
+    }
+  }
 }
 
 export const documentsService = new DocumentsRepository(api);

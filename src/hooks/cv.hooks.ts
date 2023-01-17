@@ -1,6 +1,10 @@
 import { CVModel, Response } from "@api/models";
 import { documentsService } from "@api/repositories";
-import { useMutation, UseMutationOptions } from "@tanstack/react-query";
+import {
+  useMutation,
+  UseMutationOptions,
+  useQuery,
+} from "@tanstack/react-query";
 
 export const useCV = (
   options: UseMutationOptions<Response<CVModel>, { message: string }>
@@ -9,5 +13,11 @@ export const useCV = (
     mutationKey: ["cv"],
     mutationFn: () => documentsService.getCV(),
     ...options,
+  });
+};
+export const saveVisit = () => {
+  return useQuery({
+    queryKey: ["visit"],
+    queryFn: () => documentsService.saveVisit(),
   });
 };

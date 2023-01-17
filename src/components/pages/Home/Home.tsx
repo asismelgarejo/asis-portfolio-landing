@@ -16,12 +16,23 @@ import HomeAnimation from "../../../../public/lotties/home.json";
 import { useEffect, useState } from "react";
 // import { useCV } from "@hooks/cv.hooks";
 import { useSnackbar } from "notistack";
-import { useCV } from "src/hooks";
+import { saveVisit, useCV } from "src/hooks";
 
 export const Home = () => {
   const theme = useTheme();
   const { enqueueSnackbar } = useSnackbar();
-
+  saveVisit();
+  // if(){
+  //   enqueueSnackbar("Thanks for visiting", {
+  //     variant: "success",
+  //     preventDuplicate: true,
+  //     autoHideDuration: 1200,
+  //     anchorOrigin: {
+  //       vertical: "bottom",
+  //       horizontal: "left",
+  //     },
+  //   });
+  // }
   const cvMutation = useCV({
     onSuccess({ data }) {
       const file = new Blob([data.binary], { type: "application/pdf" });
@@ -69,34 +80,10 @@ export const Home = () => {
     className: "Lottie",
   });
 
-  // const getCV = async () => {
-  //   // alert("WORKING!S");
-  //   const { binary, filename } = await documentsService.getCV();
-  //   const file = new Blob([binary], { type: "application/pdf" });
-  //   const fileURL = URL.createObjectURL(file);
-
-  //   try{
-  //     const pdfLinkRef = document.createElement("a");
-  //     pdfLinkRef.setAttribute("href", fileURL);
-  //     pdfLinkRef.setAttribute("download", filename);
-  //     pdfLinkRef.click();
-  //   }catch(e){
-  //     console.log("")
-  //   }
-  //   // pdfLinkRef.current && pdfLinkRef.current.setAttribute("href", fileURL);
-  //   // pdfLinkRef.current && pdfLinkRef.current.setAttribute("download", filename);
-  //   // pdfLinkRef.current && pdfLinkRef.current.click();
-  //   // document.body.removeChild(pdfLinkRef);
-  //   alert("WORKING!F");
-  // };
-
   useEffect(() => {
-    // if (index < fullText.length) {
     const myTimeout = setTimeout(() => {
       let nI = index;
-      let t = text;
       setText(fullText.slice(0, nI));
-      // else setReverse(false);
       if (loop.reverse) nI--;
       else nI++;
       setIndex(nI);

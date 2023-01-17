@@ -48,6 +48,10 @@ const Skills = () => {
     },
   };
   const getSkillAnimation = (scale: number) => {
+    if (!greaterOrEqualToSM) return {
+      loading: {},
+      loaded: {},
+    };
     return {
       loading: {
         width: "0%",
@@ -130,6 +134,11 @@ const Skills = () => {
                             height: "100%",
                             background: theme.palette.info.main,
                             display: "block",
+                            ...(greaterOrEqualToSM
+                              ? {}
+                              : {
+                                  width: `${skill.domain * 100}%`,
+                                }),
                           }}
                         />
                       </SkillStats>
