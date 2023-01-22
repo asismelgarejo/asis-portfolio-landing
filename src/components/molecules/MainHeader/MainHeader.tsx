@@ -31,10 +31,12 @@ export const MainHeader = () => {
             className="progress-bar"
             style={{ scaleX: scrollYProgress }}
           />
-          <Stack spacing={1} direction="row" alignItems="center">
-            <LogoDevIcon />
-            <Typography variant="h6">ASIS MELGAREJO</Typography>
-          </Stack>
+          <Link href="/">
+            <Stack spacing={1} direction="row" alignItems="center">
+              <LogoDevIcon />
+              <Typography variant="h6">ASIS MELGAREJO</Typography>
+            </Stack>
+          </Link>
           {isMobile && (
             <Menus>
               {PAGE_LINKS.map((pl) => (

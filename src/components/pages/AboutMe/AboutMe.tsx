@@ -20,7 +20,7 @@ const AboutMe = () => {
         <Box className="Content" component={Stack} spacing={2}>
           <Typography component="h3" variant="h3">
             I'm a software engineer specilized in web and mobile development
-            from Peru.
+            from Peru 🇵🇪.
           </Typography>
           <Box>
             <Typography component="p" variant="body1">

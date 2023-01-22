@@ -23,8 +23,7 @@ type ContainerForNoMobileProps = {
 const ContainerForNoMobile: React.FC<ContainerForNoMobileProps> = ({
   projects,
 }) => {
-
-  const projectsAnimation= {
+  const projectsAnimation = {
     loading: {
       transition: { staggerChildren: 0.15, delayChildren: 0.2, delay: 100 },
     },
@@ -61,9 +60,13 @@ const ContainerForNoMobile: React.FC<ContainerForNoMobileProps> = ({
     >
       <Cards className="TitleSection m-t-t">
         {projects.map((p) => (
-          <ProjectCardStyled component={motion.div} key={p._id} variant={projectAnimation}>
+          <motion.div
+            key={p._id}
+            variants={projectAnimation}
+            className="ProjectCardStyled"
+          >
             <ProjectCard project={p} />
-          </ProjectCardStyled>
+          </motion.div>
         ))}
       </Cards>
     </motion.div>

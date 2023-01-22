@@ -19,6 +19,21 @@ export const Container = styled(Box)<BoxProps>(({ theme }) => ({
       ...getBoxModel(theme).padding.pL(0).pR(0).build(),
     },
   },
+  ".ProjectCardStyled": {
+    width: "100%",
+    maxWidth: "100%",
+    [theme.breakpoints.up("md")]: {
+      "&:nth-of-type(3n+1)": {
+        gridColumn: "1 / 2",
+      },
+      "&:nth-of-type(3n+2)": {
+        gridColumn: "3 / 4",
+      },
+      "&:nth-of-type(3n+3)": {
+        gridColumn: "5 / 6",
+      },
+    },
+  },
 }));
 export const Cards = styled(Box)<any>(({ theme }) => ({
   // ...measuresTitleT.build(),
@@ -43,12 +58,6 @@ export const ProjectCardStyled = styled(Card)<any>(({ theme }) => ({
   width: "100%",
   maxWidth: "100%",
   textAlign: "left",
-  // "&:nth-of-type(2n+1)": {
-  //   gridColumn: "1 / 2",
-  // },
-  // "&:nth-of-type(2n+2)": {
-  //   gridColumn: "3 / 4",
-  // },
   ".Buttons": {
     display: "grid",
     gridTemplateColumns: "1fr minmax(30px, auto) 1fr",
@@ -61,15 +70,4 @@ export const ProjectCardStyled = styled(Card)<any>(({ theme }) => ({
     gridColumn: "3 / 4",
   },
 
-  [theme.breakpoints.up("md")]: {
-    "&:nth-of-type(3n+1)": {
-      gridColumn: "1 / 2",
-    },
-    "&:nth-of-type(3n+2)": {
-      gridColumn: "3 / 4",
-    },
-    "&:nth-of-type(3n+3)": {
-      gridColumn: "5 / 6",
-    },
-  },
 }));

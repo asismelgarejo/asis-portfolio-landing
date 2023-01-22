@@ -1,59 +1,16 @@
 import { Project } from "@api/models/projects";
-import { v4 as uuidv4 } from "uuid";
 export const PROJECTS: Project[] = [
   {
-    _id: uuidv4(),
-    name: "Custom CMS for a mining company blog",
-    tags: ["laravel"],
-    description: "Lorem ipsum dolor",
-    repo: "httpasdasdasd",
+    _id: "63cd6432ba1acccb491b4672",
+    name: "Vaccionation System",
+    tags: ["Graphql", "PostsgreSQL", "Node.js", "Redis"],
+    description:
+      "A system where a citizen can verify their vaccines and where nurses or other authorized health professionals can register new ones.",
+    repo: "https://github.com/asismelgarejo/vaccination-system-frontend",
+    demo: "https://vaccination-system-frontend.vercel.app/",
     image: {
-      url: "/images/cms.png",
-      caption: "asdasd",
-    },
-  },
-  {
-    _id: uuidv4(),
-    name: "Custom CMS for a mining company blog",
-    tags: ["laravel"],
-    description: "Lorem ipsum dolor",
-    repo: "httpasdasdasd",
-    image: {
-      url: "/images/cms.png",
-      caption: "asdasd",
-    },
-  },
-  {
-    _id: uuidv4(),
-    name: "Custom CMS for a mining company blog",
-    tags: ["laravel"],
-    description: "Lorem ipsum dolor",
-    repo: "httpasdasdasd",
-    image: {
-      url: "/images/cms.png",
-      caption: "asdasd",
-    },
-  },
-  {
-    _id: uuidv4(),
-    name: "Custom CMS for a mining company blog",
-    tags: ["laravel"],
-    description: "Lorem ipsum dolor",
-    repo: "httpasdasdasd",
-    image: {
-      url: "/images/cms.png",
-      caption: "asdasd",
-    },
-  },
-  {
-    _id: uuidv4(),
-    name: "Custom CMS for a mining company blog",
-    tags: ["laravel"],
-    description: "Lorem ipsum dolor",
-    repo: "httpasdasdasd",
-    image: {
-      url: "/images/cms.png",
-      caption: "asdasd",
+      url: "/images/vs_home.png",
+      caption: "vaccionation system home",
     },
   },
 ];

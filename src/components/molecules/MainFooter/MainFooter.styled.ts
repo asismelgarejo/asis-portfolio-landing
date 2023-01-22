@@ -20,12 +20,11 @@ export const Container = styled(Box, {
     margin: "1em 0",
     display: "flex",
     justifyContent: "center",
-    alignItems: "center"
-
+    alignItems: "center",
   },
   ".Links .Link": {
     margin: "0 1em",
-    width: "fit-content"
+    width: "fit-content",
   },
   ".Links .Link:first-child": {
     marginLeft: "0",
@@ -48,7 +47,7 @@ export const Container = styled(Box, {
 export const SocialNetwork = styled(
   Box,
   {}
-)<BoxProps>(({ theme }) => ({
+)<BoxProps & { href?: string, target?: string }>(({ theme }) => ({
   margin: "0 15px",
   width: "2.5em",
   height: "2.5em",
@@ -61,12 +60,12 @@ export const SocialNetwork = styled(
   ".Item": {
     fontSize: "1.5em",
   },
-  [theme.breakpoints.up("sm")]:{
+  [theme.breakpoints.up("sm")]: {
     margin: "0 10px",
     width: "3.75em",
     height: "3.75em",
     ".Item": {
       fontSize: "2em",
     },
-  }
+  },
 }));

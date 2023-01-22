@@ -1,4 +1,5 @@
 import { Box, Divider, Typography } from "@mui/material";
+import { getIcon } from "@toolbox/helpers";
 import Link from "next/link";
 import React from "react";
 import { LINKS, SOCIAL_NETWORKS } from "src/mocks";
@@ -24,11 +25,14 @@ export const MainFooter = () => {
         ))}
       </Typography>
       <Box component="div" className="SocialNetworks">
-        {SOCIAL_NETWORKS.map(({ Icon, ...i }) => (
-          <SocialNetwork key={i._id}>
-            <Icon className="Item" />
-          </SocialNetwork>
-        ))}
+        {SOCIAL_NETWORKS.map((i) => {
+          const Icon = getIcon(i.icon);
+          return (
+            <SocialNetwork key={i._id} component="a" href={i.link} target="_blank">
+              <Icon className="Item" />
+            </SocialNetwork>
+          );
+        })}
       </Box>
       <Divider sx={{ width: "100%" }} />
       <Typography component="p" variant="h6" className="Copyright">

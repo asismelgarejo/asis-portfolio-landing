@@ -74,6 +74,14 @@ export const darkTheme: ThemeOptions = {
           }
         }
       },
+    },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          borderRadius: "4px"
+        }
+      },
     }
+
   },
 };

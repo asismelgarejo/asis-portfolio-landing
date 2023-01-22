@@ -9,11 +9,12 @@ import Skills from "@components/pages/Skills/Skills";
 import Projects from "@components/pages/Projects/Projects";
 import Contact from "@components/pages/Contact/Contact";
 import { LINKS } from "@mocks/links";
+import { ActiveSectionContextProvider } from "@contexts/ActiveSectionContext";
 // import styles from '../styles/Home.module.css'
 
 export default function Index() {
   return (
-    <div>
+    <ActiveSectionContextProvider>
       <MainLayout links={LINKS}>
         <Home />
         <AboutMe />
@@ -23,6 +24,6 @@ export default function Index() {
         <Projects />
         <Contact />
       </MainLayout>
-    </div>
+    </ActiveSectionContextProvider>
   );
 }
