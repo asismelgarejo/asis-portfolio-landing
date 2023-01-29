@@ -23,7 +23,7 @@ export const Timeline = () => {
               >
                 <Image
                   className="Image"
-                  alt={we.company.image.caption}
+                  alt={we.company.image.alt}
                   src={we.company.image.url}
                   width={100}
                   height={100}

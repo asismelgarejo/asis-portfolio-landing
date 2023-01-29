@@ -27,7 +27,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       <Box sx={{ width: "100%", height: "150px", overflow: "hidden" }}>
         <Image
           src={project.image.url}
-          alt={project.image.caption}
+          alt={project.image.alt}
           width={600}
           height={600}
           style={{ width: "100%", height: "auto" }}

@@ -16,24 +16,29 @@ const AboutMe = () => {
         About me
       </Typography>
       <Divider />
-      <ContainerContent  className="m-t-t">
+      <ContainerContent className="m-t-t">
         <Box className="Content" component={Stack} spacing={2}>
-          <Typography component="h3" variant="h3">
+          {/* <Typography component="h3" variant="h3">
             I'm a software engineer specilized in web and mobile development
             from Peru 🇵🇪.
-          </Typography>
+          </Typography> */}
           <Box>
-            <Typography component="p" variant="body1">
+            {/* <Typography component="p" variant="body1">
               I work building sass apps mainly for medium and big companies
               contributing to the project's success.
-            </Typography>
+            </Typography> */}
             <Typography component="p" variant="body1">
-              I work building sass apps mainly for medium and big companies
-              contributing to the project's success. Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit. Donec bibendum cursus auctor. Integer
-              mattis lacus vel ligula sagittis, quis egestas ligula accumsan. Ut
-              nec quam ut orci ultrices laoreet. Nullam tempus at orci in
-              commodo.
+              I've been working in web and mobile development for at least two
+              years. Currently I course the 9th grade of system engineering.
+            </Typography>
+            <br />
+            <Typography component="p" variant="body1">
+              During my experience I've learned a lot of things, both technicals
+              and no technicals. Some important tech skills about apps
+              development I have are testing, design patterns, data structures,
+              app deployment, CI/CD, control versioning, for naming a few. And
+              some no technical skills I have are work team, responsability,
+              punctuality in deliverables, goals driven, also for naming a few.
             </Typography>
           </Box>
         </Box>

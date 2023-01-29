@@ -26,7 +26,7 @@ export const Container = styled(Box, {
     margin: "0 1em",
     width: "fit-content",
   },
-  ".Links .Link:first-child": {
+  ".Links .Link:first-of-type": {
     marginLeft: "0",
   },
   ".Links .Link:last-child": {

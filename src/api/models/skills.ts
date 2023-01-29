@@ -1,20 +1,12 @@
-import { Image } from "./common";
-import { EducationAndCertification } from "./education_and_certications";
-import { Project } from "./projects";
-import { WorkExperience } from "./work_experience";
-
-export interface Skill {
-    _id: string;
-    name:  string;
-    image: Image;
-    domain: number;
-    color: string;
-    // experience: WorkExperience[];
-    // projects: Project[]
-    // certifications: EducationAndCertification[]
-    // description: string;
+import { Image } from './common';
+export interface SkillModel {
+  _id: string;
+  name: string;
+  image: Image;
+  domain: number;
+  description: string;
+  // experience: WorkExperience[];
+  // projects: Project[]
+  // certifications: EducationAndCertification[]
+  // description: string;
 }
-
-/*
-
- */

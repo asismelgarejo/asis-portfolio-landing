@@ -1,6 +1,6 @@
 export interface Image {
   url: string;
-  caption: string;
+  alt: string;
 }
 
 export interface Response<T> {

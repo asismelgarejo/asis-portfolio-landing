@@ -1,8 +1,6 @@
 import { HolderAnchor } from "@components/atoms";
-import { SKILLS } from "@mocks/skills";
 import {
   Box,
-  Card,
   CardContent,
   Collapse,
   Divider,
@@ -16,26 +14,30 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { Container, ContainerSkills, SkillStats } from "./Skills.styled";
 import { KeyboardArrowDown as ArrowIcon } from "@mui/icons-material";
-import { Skill } from "@api/models/skills";
+import { SkillModel } from "@api/models";
 import { motion } from "framer-motion";
-const Skills = () => {
+
+type SkillsProps = {
+  data: SkillModel[];
+};
+const Skills: React.FC<SkillsProps> = ({ data }) => {
   const { containerRef } = useActiveSection("skills");
   const theme = useTheme();
   const greaterOrEqualToSM = useMediaQuery(theme.breakpoints.up("md"));
 
   const [skillId, setSkillId] = useState("");
 
-  const [skills, setSkills] = useState<Skill[][]>([]);
-  const PERPAGE = 15;
+  const [skills, setSkills] = useState<SkillModel[][]>([]);
+  const PERPAGE = 20 ;
 
-  const transformIntoArrayOfArrays = (): Skill[][] => {
-    const s = Array.from({ length: Math.ceil(SKILLS.length / PERPAGE) }).reduce(
+  const transformIntoArrayOfArrays = (): SkillModel[][] => {
+    const s = Array.from({ length: Math.ceil(data.length / PERPAGE) }).reduce(
       (p: any, n, idx) => {
         const offset = idx * PERPAGE;
-        return [...p, SKILLS.slice(offset, offset + PERPAGE)];
+        return [...p, data.slice(offset, offset + PERPAGE)];
       },
       []
-    ) as Skill[][];
+    ) as SkillModel[][];
     return s;
   };
 
@@ -48,10 +50,11 @@ const Skills = () => {
     },
   };
   const getSkillAnimation = (scale: number) => {
-    if (!greaterOrEqualToSM) return {
-      loading: {},
-      loaded: {},
-    };
+    if (!greaterOrEqualToSM)
+      return {
+        loading: {},
+        loaded: {},
+      };
     return {
       loading: {
         width: "0%",
@@ -72,7 +75,7 @@ const Skills = () => {
 
   useEffect(() => {
     if (greaterOrEqualToSM) setSkills(transformIntoArrayOfArrays());
-    else setSkills([SKILLS]);
+    else setSkills([data]);
   }, [greaterOrEqualToSM]);
   return (
     <Container ref={containerRef} component="section" className="p-b p-t">
@@ -162,7 +165,7 @@ const Skills = () => {
                         {skills[0] && (
                           <Image
                             src={skill.image.url}
-                            alt={skill.image.caption}
+                            alt={skill.image.alt}
                             width={100}
                             height={100}
                             className="SkillImage"
@@ -177,9 +180,7 @@ const Skills = () => {
                       >
                         <CardContent className="CardContent">
                           <Typography component="p" variant="body2">
-                            Nunc lobortis convallis orci at dapibus. Integer
-                            vehicula mi in felis ultrices blandit. Donec
-                            fermentum diam nec mi tincidunt pharetra.
+                           {skill.description}
                           </Typography>
                         </CardContent>{" "}
                       </Collapse>

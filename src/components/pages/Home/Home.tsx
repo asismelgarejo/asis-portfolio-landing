@@ -20,17 +20,6 @@ export const Home = () => {
   const theme = useTheme();
   const { enqueueSnackbar } = useSnackbar();
   const visitMutation = saveVisit();
-  // if(){
-  //   enqueueSnackbar("Thanks for visiting", {
-  //     variant: "success",
-  //     preventDuplicate: true,
-  //     autoHideDuration: 1200,
-  //     anchorOrigin: {
-  //       vertical: "bottom",
-  //       horizontal: "left",
-  //     },
-  //   });
-  // }
   const cvMutation = useCV({
     onSuccess({ data }) {
       const file = new Blob([data.binary], { type: "application/pdf" });
@@ -95,20 +84,13 @@ export const Home = () => {
     return () => clearTimeout(myTimeout);
   }, [index]);
 
-  useEffect(() => {
-    visitMutation.mutate();
-  }, []);
+  // useEffect(() => {
+  //   visitMutation.mutate();
+  // }, []);
   return (
     <Container className="p-t p-b" ref={containerRef}>
       <Box className="ImageContainer">
         {View}
-        {/* <Image
-          src="/images/home.jpg"
-          alt="asis"
-          width={500}
-          height={800}
-          className="Image"
-        /> */}
       </Box>
       <Box className="Content" component={Stack} spacing={2}>
         <Typography component="h1" variant="h1">
@@ -119,8 +101,7 @@ export const Home = () => {
         </Typography>
         {showText && (
           <Typography component="p" variant="h5">
-            As a full-stack developer I build Saas applications for the web and
-            mobile environments.
+            I'm a software engineer specilized in web and mobile development from Peru 🇵🇪.
           </Typography>
         )}
         <Stack spacing={1} direction="row" className="Buttons">

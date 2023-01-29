@@ -10,7 +10,7 @@ export const PROJECTS: Project[] = [
     demo: "https://vaccination-system-frontend.vercel.app/",
     image: {
       url: "/images/vs_home.png",
-      caption: "vaccionation system home",
+      alt: "vaccionation system home",
     },
   },
 ];
