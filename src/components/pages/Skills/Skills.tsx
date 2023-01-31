@@ -44,11 +44,7 @@ const Skills: React.FC<SkillsProps> = ({ data }) => {
       areas: string[];
       specializations: string[];
     }>
-  >({
-    levels: [levels[0]._id],
-    // areas: [],
-    // specializations: [],
-  });
+  >({});
   const [skills, setSkills] = useState<SkillModel[]>([]);
 
   const mutateSkills = useMutationSkills({
@@ -58,7 +54,8 @@ const Skills: React.FC<SkillsProps> = ({ data }) => {
   });
 
   useEffect(() => {
-    mutateSkills.mutate(filters);
+    mutateSkills.mutate({ levels: [levels[0]._id] });
+    setFilters((prev) => ({ ...prev, levels: [levels[0]._id] }));
   }, []);
 
   return (
@@ -91,11 +88,15 @@ const Skills: React.FC<SkillsProps> = ({ data }) => {
             value={levels}
             filterSelectedOptions
             onChange={(event: React.SyntheticEvent, value: LevelModel[]) => {
-              const levels = value.map((i) => i._id);
-              setFilters((prev) => ({ ...prev, levels }));
-              const updated = { ...filters, levels };
-              mutateSkills.mutate(updated);
-              setLevels(value);
+              if (value) {
+                const levels = value.map((i) => i._id);
+                setFilters((prev) => ({ ...prev, levels }));
+                const updated = { ...filters, levels };
+                mutateSkills.mutate(updated);
+              } else {
+                mutateSkills.mutate({});
+              }
+              setLevels(value ?? []);
             }}
             renderInput={(params) => (
               <TextField {...params} variant="outlined" />
@@ -194,117 +195,6 @@ const Skills: React.FC<SkillsProps> = ({ data }) => {
   );
 };
 export default Skills;
-
-// <ContainerSkills>
-
-// {skills.map((ss, idx) => (
-//           <Box component="table" className="Table" key={idx}>
-//             <motion.div
-//               initial="loading"
-//               whileInView="loaded"
-//               variants={skillsAnimation}
-//             >
-//               {ss.map((skill) => (
-//                 <Box component="tbody" key={skill._id}>
-//                   <Box
-//                     component="tr"
-//                     onClick={() =>
-//                       setSkillId((prev) =>
-//                         prev === skill._id ? "" : skill._id
-//                       )
-//                     }
-//                     sx={{
-//                       ...(skill._id === skillId
-//                         ? {
-//                             boxShadow: `0px 4px 5px 2px rgba(0,0,0,.4)`,
-//                           }
-//                         : {}),
-//                     }}
-//                   >
-//                     <Box component="td">
-//                       <Typography
-//                         component="h6"
-//                         variant="h6"
-//                         sx={{
-//                           display: "inline-block",
-//                           whiteSpace: "nowrap",
-//                           ...(skill._id === skillId
-//                             ? {
-//                                 fontWeight: 500,
-//                               }
-//                             : {}),
-//                         }}
-//                       >
-//                         {skill.name}
-//                       </Typography>
-//                     </Box>
-//                     <Box component="td">
-//                       <SkillStats
-//                         scale={skill.domain}
-//                         className="Generic SkillStats"
-//                       >
-//                         <motion.div
-//                           variants={getSkillAnimation(skill.domain)}
-//                           style={{
-//                             height: "100%",
-//                             background: theme.palette.info.main,
-//                             display: "block",
-//                             ...(greaterOrEqualToSM
-//                               ? {}
-//                               : {
-//                                   width: `${skill.domain * 100}%`,
-//                                 }),
-//                           }}
-//                         />
-//                       </SkillStats>
-//                     </Box>
-//                     <Box component="td">
-//                       <IconButton disableRipple>
-//                         <ArrowIcon
-//                           sx={{
-//                             ...(skill._id === skillId
-//                               ? {}
-//                               : { transform: "rotate(-180deg)" }),
-//                             transition: "all",
-//                           }}
-//                         />
-//                       </IconButton>
-//                     </Box>
-//                   </Box>
-//                   <Box component="tr">
-//                     <Box component="td">
-//                       <Collapse in={skillId === skill._id}>
-//                         {skills[0] && (
-//                           <Image
-//                             src={skill.image.url}
-//                             alt={skill.image.alt}
-//                             width={100}
-//                             height={100}
-//                             className="SkillImage"
-//                           />
-//                         )}
-//                       </Collapse>
-//                     </Box>
-//                     <Box component="td" sx={{ minHeight: "50px" }}>
-//                       <Collapse
-//                         in={skillId === skill._id}
-//                         sx={{ width: "100%" }}
-//                       >
-//                         <CardContent className="CardContent">
-//                           <Typography component="p" variant="body2">
-//                            {skill.description}
-//                           </Typography>
-//                         </CardContent>{" "}
-//                       </Collapse>
-//                     </Box>
-//                     <Box component="td"></Box>
-//                   </Box>
-//                 </Box>
-//               ))}
-//             </motion.div>
-//           </Box>
-//         ))}
-//       </ContainerSkills>
 
 // const greaterOrEqualToSM = useMediaQuery(theme.breakpoints.up("md"));
 
