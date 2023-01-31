@@ -12,10 +12,12 @@ import { LINKS } from "@mocks/links";
 import { ActiveSectionContextProvider } from "@contexts/ActiveSectionContext";
 import { GetStaticProps } from "next";
 import { PageHomeProps } from "@toolbox/interfaces/pages";
-import { skillsService } from "@api/repositories";
+import { levelsService } from "@api/repositories";
+import { areasService } from "@api/repositories/areas.repository";
+import { specializationsService } from "@api/repositories/specializations.repository";
 // import styles from '../styles/Home.module.css'
 
-const Index: React.FC<PageHomeProps> = ({ skills }) => {
+const Index: React.FC<PageHomeProps> = ({ data }) => {
   return (
     <ActiveSectionContextProvider>
       <MainLayout links={LINKS}>
@@ -23,7 +25,7 @@ const Index: React.FC<PageHomeProps> = ({ skills }) => {
         <AboutMe />
         <EducationAndCertifications />
         <WorkExperience />
-        <Skills data={skills}/>
+        <Skills data={data} />
         <Projects />
         <Contact />
       </MainLayout>
@@ -33,11 +35,17 @@ const Index: React.FC<PageHomeProps> = ({ skills }) => {
 export const getStaticProps: GetStaticProps<PageHomeProps> = async (
   context
 ) => {
-  const { data: skills } = await skillsService.getSkills();
-  console.log(">>skills", skills)
+  const { data: levels } = await levelsService.getLevels();
+  const { data: areas } = await areasService.getAreas();
+  const { data: specializations } =
+    await specializationsService.getSpecializations();
   return {
     props: {
-      skills,
+      data: {
+        levels: levels,
+        areas: areas,
+        specializations: specializations,
+      },
     }, // will be passed to the page component as props
   };
 };

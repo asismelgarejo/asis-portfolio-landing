@@ -7,3 +7,4 @@ export * from "./email";
 export * from "./documents";
 export * from "./social-networks";
 export * from "./skills";
+export * from "./filters";

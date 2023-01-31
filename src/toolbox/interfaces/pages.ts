@@ -1,5 +1,14 @@
-import { SkillModel } from "@api/models/skills";
+import {
+  SkillModel,
+  LevelModel,
+  AreaModel,
+  SpecializationModel,
+} from "@api/models";
 
 export type PageHomeProps = {
-  skills: SkillModel[];
+  data: {
+    levels: LevelModel[];
+    areas: AreaModel[];
+    specializations: SpecializationModel[];
+  };
 };

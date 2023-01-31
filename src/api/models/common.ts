@@ -8,5 +8,6 @@ export interface Response<T> {
   success: boolean;
 }
 export interface CommonError {
+  success: boolean;
   message: string;
 }

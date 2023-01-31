@@ -77,6 +77,13 @@ export const ThemeContextProvider: React.FC<ThemeContextProviderProps> = ({
       fontSize: "2em",
     },
   };
+  theme.typography.caption = {
+    fontSize: "1em",
+    fontWeight: 100,
+    [theme.breakpoints.up("md")]: {
+      fontSize: "8px",
+    },
+  };
   theme.typography.body1 = {
     fontSize: "1.1em",
     fontWeight: 200,

@@ -1,12 +1,12 @@
-import { SkillModel, Response, SkillParams } from "@api/models";
+import { CVModel, LevelModel, Response } from "@api/models";
 import { AxiosInstance, AxiosResponse } from "axios";
 import { api } from "../api";
 
-class SkillsRepository {
+class LevelsRepository {
   constructor(private api: AxiosInstance) {}
-  async getSkills(params?: SkillParams): Promise<Response<SkillModel[]>> {
+  async getLevels(): Promise<Response<LevelModel[]>> {
     try {
-      const response = await this.api.get<SkillModel[]>("/skills", { params });
+      const response = await this.api.get<LevelModel[]>("/levels");
       return {
         success: true,
         data: response.data,
@@ -17,4 +17,4 @@ class SkillsRepository {
   }
 }
 
-export const skillsService = new SkillsRepository(api);
+export const levelsService = new LevelsRepository(api);
