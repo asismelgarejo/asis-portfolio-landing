@@ -10,6 +10,7 @@ import {
   FormControl,
   FormLabel,
   IconButton,
+  LinearProgress,
   TextField,
   Typography,
   useMediaQuery,
@@ -18,7 +19,7 @@ import {
 import { useActiveSection } from "@toolbox/hooks";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { Container, ContainerSkills } from "./Skills.styled";
+import { Container, ContainerSkills, FormControls } from "./Skills.styled";
 import {
   LevelModel,
   SkillModel,
@@ -37,12 +38,17 @@ type SkillsProps = {
 const Skills: React.FC<SkillsProps> = ({ data }) => {
   const { containerRef } = useActiveSection("skills");
   const [levels, setLevels] = useState<LevelModel[]>([data.levels[0]]);
-
+  const [areas, setAreas] = useState<AreaModel[]>([]);
+  const [name, setName] = useState<string>("");
+  const [specializations, setSpecializations] = useState<SpecializationModel[]>(
+    []
+  );
   const [filters, setFilters] = useState<
     Partial<{
       levels: string[];
       areas: string[];
       specializations: string[];
+      name: string;
     }>
   >({});
   const [skills, setSkills] = useState<SkillModel[]>([]);
@@ -54,9 +60,22 @@ const Skills: React.FC<SkillsProps> = ({ data }) => {
   });
 
   useEffect(() => {
-    mutateSkills.mutate({ levels: [levels[0]._id] });
-    setFilters((prev) => ({ ...prev, levels: [levels[0]._id] }));
+    // mutateSkills.mutate({ levels: [levels[0]._id] });
+    // setFilters((prev) => ({ ...prev, levels: [levels[0]._id] }));
+    setLoaded(true);
   }, []);
+
+  const [loaded, setLoaded] = useState(false);
+  const [searchByTxt, setSearchByTxt] = useState(false);
+
+  useEffect(() => {
+    if (!loaded) return;
+    if (!searchByTxt) return;
+    const id = setTimeout(() => {
+      mutateSkills.mutate({ name });
+    }, 300);
+    return () => clearTimeout(id);
+  }, [name]);
 
   return (
     <Container ref={containerRef} component="section" className="p-b p-t">
@@ -65,15 +84,21 @@ const Skills: React.FC<SkillsProps> = ({ data }) => {
         Skills
       </Typography>
       <Divider />
-      <TextField fullWidth />
-      <br />
-      <br />
-      <Box
-        sx={{
-          display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
-          columnGap: "10px",
+      <TextField
+        fullWidth
+        value={name}
+        onChange={(e) => {
+          setFilters({ name: e.target.value });
+          setName(e.target.value);
+          setSearchByTxt(true);
+          setLevels([]);
+          setAreas([]);
+          setSpecializations([]);
         }}
+      />
+      <br />
+      <br />
+      <FormControls
       >
         <FormControl component="fieldset" variant="standard">
           <FormLabel component="legend">Level</FormLabel>
@@ -84,14 +109,16 @@ const Skills: React.FC<SkillsProps> = ({ data }) => {
             options={data.levels}
             getOptionLabel={(option) => option.name}
             size="small"
-            // defaultValue={[data.levels[0]]}
             value={levels}
             filterSelectedOptions
             onChange={(event: React.SyntheticEvent, value: LevelModel[]) => {
+              setName("");
+              setSearchByTxt(false);
               if (value) {
                 const levels = value.map((i) => i._id);
                 setFilters((prev) => ({ ...prev, levels }));
                 const updated = { ...filters, levels };
+                delete updated?.name;
                 mutateSkills.mutate(updated);
               } else {
                 mutateSkills.mutate({});
@@ -112,16 +139,20 @@ const Skills: React.FC<SkillsProps> = ({ data }) => {
             options={data.areas}
             getOptionLabel={(option) => option.name}
             size="small"
-            // defaultValue={[data.areas[0]]}
             filterSelectedOptions
+            value={areas}
             onChange={(event: React.SyntheticEvent, value: AreaModel[]) => {
-              const areas = value.map((i) => i._id);
+              setName("");
+              setSearchByTxt(false);
               setFilters((prev) => ({ ...prev, areas }));
+              const areas = value.map((i) => i._id);
               const updated = { ...filters, areas };
+              delete updated?.name;
               mutateSkills.mutate(updated);
+              setAreas(value ?? []);
             }}
             renderInput={(params) => (
-              <TextField {...params} variant="outlined" />
+              <TextField {...params} variant="outlined" name="areas"/>
             )}
           />
         </FormControl>
@@ -134,25 +165,36 @@ const Skills: React.FC<SkillsProps> = ({ data }) => {
             options={data.specializations}
             getOptionLabel={(option) => option.name}
             size="small"
-            // defaultValue={[data.specializations[0]]}
+            value={specializations}
             filterSelectedOptions
             onChange={(
               event: React.SyntheticEvent,
               value: SpecializationModel[]
             ) => {
+              setName("");
+              setSearchByTxt(false);
               const specializations = value.map((i) => i._id);
               setFilters((prev) => ({ ...prev, specializations }));
               const updated = { ...filters, specializations };
+              delete updated?.name;
               mutateSkills.mutate(updated);
+              setSpecializations(value ?? []);
             }}
             renderInput={(params) => (
-              <TextField {...params} variant="outlined" />
+              <TextField
+                {...params}
+                variant="outlined"
+                name="specializations"
+              />
             )}
           />
         </FormControl>
-      </Box>
+      </FormControls>
       <br />
-      <ContainerSkills>
+      {/* {<LinearProgress />} */}
+      {mutateSkills.isLoading && <LinearProgress />}
+      <br />
+      <ContainerSkills disabled={mutateSkills.isLoading}>
         {skills.map((skill) => (
           <Card key={skill._id} className="Card">
             <CardContent className="CardContent">

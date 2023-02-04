@@ -14,4 +14,5 @@ export type SkillParams = {
   levels?: string[];
   areas?: string[];
   specializations?: string[];
+  name?: string;
 };

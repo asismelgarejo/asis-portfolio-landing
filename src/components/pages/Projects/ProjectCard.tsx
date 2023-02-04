@@ -45,9 +45,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             justifyContent: "space-between"
           }}
         >
-          {project.tags.map((t) => (
+          {project.tags.map((t, idx) => (
             <Chip
               label={t}
+              key={idx}
               color="primary"
               variant="outlined"
               size="small"
