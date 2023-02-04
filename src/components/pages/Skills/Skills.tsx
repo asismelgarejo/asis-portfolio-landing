@@ -60,8 +60,8 @@ const Skills: React.FC<SkillsProps> = ({ data }) => {
   });
 
   useEffect(() => {
-    // mutateSkills.mutate({ levels: [levels[0]._id] });
-    // setFilters((prev) => ({ ...prev, levels: [levels[0]._id] }));
+    mutateSkills.mutate({ levels: [levels[0]._id] });
+    setFilters((prev) => ({ ...prev, levels: [levels[0]._id] }));
     setLoaded(true);
   }, []);
 
