@@ -84,9 +84,9 @@ export const Home = () => {
     return () => clearTimeout(myTimeout);
   }, [index]);
 
-  // useEffect(() => {
-  //   visitMutation.mutate();
-  // }, []);
+  useEffect(() => {
+    visitMutation.mutate();
+  }, []);
   return (
     <Container className="p-t p-b" ref={containerRef}>
       <Box className="ImageContainer">
