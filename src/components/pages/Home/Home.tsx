@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 // import { useCV } from "@hooks/cv.hooks";
 import { useSnackbar } from "notistack";
 import { saveVisit, useCV } from "src/hooks";
+import { useTypedAnimation } from "src/hooks/typed-animation";
 
 export const Home = () => {
   const theme = useTheme();
@@ -54,10 +55,15 @@ export const Home = () => {
     },
   });
   const { containerRef } = useActiveSection("about-me");
-  const [text, setText] = useState("");
-  const [fullText] = useState("   Full Stack Web and Mobile Developer   ");
-  const [index, setIndex] = useState(2);
-  const [loop, setLoop] = useState({ reverse: false, goal: fullText.length });
+
+  const text = useTypedAnimation({
+    texts: [
+      "Typescript developer",
+      "Java Developer",
+      "Go Developer",
+      "Full Stack Web and Mobile Developer",
+    ],
+  });
   const greaterOrEqualToSM = useMediaQuery(theme.breakpoints.up("sm"));
   const showText = greaterOrEqualToSM;
   const showContactBtn = greaterOrEqualToSM;
@@ -68,30 +74,11 @@ export const Home = () => {
   });
 
   useEffect(() => {
-    const myTimeout = setTimeout(() => {
-      let nI = index;
-      setText(fullText.slice(0, nI));
-      if (loop.reverse) nI--;
-      else nI++;
-      setIndex(nI);
-      if (nI === loop.goal) {
-        setLoop({
-          reverse: !loop.reverse,
-          goal: loop.goal === 0 ? fullText.length : 0,
-        });
-      }
-    }, 60);
-    return () => clearTimeout(myTimeout);
-  }, [index]);
-
-  useEffect(() => {
     visitMutation.mutate();
   }, []);
   return (
     <Container className="p-t p-b" ref={containerRef}>
-      <Box className="ImageContainer">
-        {View}
-      </Box>
+      <Box className="ImageContainer">{View}</Box>
       <Box className="Content" component={Stack} spacing={2}>
         <Typography component="h1" variant="h1">
           Asis Melgarejo
@@ -101,7 +88,8 @@ export const Home = () => {
         </Typography>
         {showText && (
           <Typography component="p" variant="h5">
-            I'm a software engineer specilized in web and mobile development from Peru 🇵🇪.
+            I'm a software engineer specilized in web and mobile development
+            from Peru 🇵🇪.
           </Typography>
         )}
         <Stack spacing={1} direction="row" className="Buttons">
