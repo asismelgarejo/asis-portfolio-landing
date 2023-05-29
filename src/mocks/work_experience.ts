@@ -41,6 +41,25 @@ export const WORK_EXPERIENCES: WorkExperience[] = [
       website: "",
     },
   },
+  {
+    _id: uuidv4(),
+    job: {
+      _id: uuidv4(),
+      role: ["Full Stack Developer"],
+      startDate: new Date(2023,3,15),
+      // endDate: new Date(),
+      description: "",
+    },
+    company: {
+      _id: uuidv4(),
+      image: {
+        url: "/images/cobraperu.png",
+        alt: ""
+      },
+      name: "Cobra Perú",
+      website: "",
+    },
+  },
   // {
   //   _id: uuidv4(),
   //   job: {

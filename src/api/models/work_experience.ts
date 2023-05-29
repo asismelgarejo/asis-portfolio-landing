@@ -14,7 +14,7 @@ export interface Company {
 export interface Job {
   role: string[];
   startDate: Date;
-  endDate: Date;
+  endDate?: Date;
   description: string;
   _id: string;
 }

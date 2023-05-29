@@ -19,9 +19,11 @@ export const WorkExperienceCard: React.FC<WorkExperienceCardProps> = ({
         locale: locale.enUS,
       })}
       &ensp;-&ensp;
-      {format.format(job.endDate, "MMMM yyyy", {
-        locale: locale.enUS,
-      })}
+      {job?.endDate
+        ? format.format(job.endDate, "MMMM yyyy", {
+            locale: locale.enUS,
+          })
+        : "Currently"}
     </Typography>
     <Typography variant="body2" component="p">
       {job.description}

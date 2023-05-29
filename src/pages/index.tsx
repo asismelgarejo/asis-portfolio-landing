@@ -28,13 +28,6 @@ const Index: React.FC<PageHomeProps> = ({ data }) => {
         <Skills data={data} />
         <Projects />
         <Contact />
-        <iframe
-          width="640"
-          height="360"
-          frameBorder="0"
-          src="https://mega.nz/embed/9BhmSIKb#JAltW7U2jrvQmuYLkZ4K7ZWyxtlnf3e-P-OQ_64mr3k"
-          allowFullScreen
-        ></iframe>
       </MainLayout>
     </ActiveSectionContextProvider>
   );
