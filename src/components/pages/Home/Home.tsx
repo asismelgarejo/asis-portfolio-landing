@@ -58,7 +58,7 @@ export const Home = () => {
 
   const text = useTypedAnimation({
     texts: [
-      "Typescript Backend developer",
+      "Typescript Backend Developer",
       "Go Backend Developer",
       "React Frontend Developer",
       "Full Stack Web Developer",
@@ -88,7 +88,7 @@ export const Home = () => {
         </Typography>
         {showText && (
           <Typography component="p" variant="h5">
-            I'm a software engineer specilized in web and mobile development
+            I'm a software engineer specialized in web and mobile development
             from Peru 🇵🇪.
           </Typography>
         )}
