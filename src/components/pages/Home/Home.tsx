@@ -58,10 +58,10 @@ export const Home = () => {
 
   const text = useTypedAnimation({
     texts: [
-      "Typescript developer",
-      "Java Developer",
-      "Go Developer",
-      "Full Stack Web and Mobile Developer",
+      "Typescript Backend developer",
+      "Go Backend Developer",
+      "React Frontend Developer",
+      "Full Stack Web Developer",
     ],
   });
   const greaterOrEqualToSM = useMediaQuery(theme.breakpoints.up("sm"));

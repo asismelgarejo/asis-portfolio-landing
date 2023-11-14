@@ -37,7 +37,11 @@ type SkillsProps = {
 };
 const Skills: React.FC<SkillsProps> = ({ data }) => {
   const { containerRef } = useActiveSection("skills");
-  const [levels, setLevels] = useState<LevelModel[]>([data.levels[0]]);
+
+  const levelsData =
+    data.levels[0] && data.levels[1] ? [data.levels[0], data.levels[1]] : [];
+
+  const [levels, setLevels] = useState<LevelModel[]>(levelsData);
   const [areas, setAreas] = useState<AreaModel[]>([]);
   const [name, setName] = useState<string>("");
   const [specializations, setSpecializations] = useState<SpecializationModel[]>(
@@ -98,8 +102,7 @@ const Skills: React.FC<SkillsProps> = ({ data }) => {
       />
       <br />
       <br />
-      <FormControls
-      >
+      <FormControls>
         <FormControl component="fieldset" variant="standard">
           <FormLabel component="legend">Level</FormLabel>
           <br />
@@ -152,7 +155,7 @@ const Skills: React.FC<SkillsProps> = ({ data }) => {
               setAreas(value ?? []);
             }}
             renderInput={(params) => (
-              <TextField {...params} variant="outlined" name="areas"/>
+              <TextField {...params} variant="outlined" name="areas" />
             )}
           />
         </FormControl>

@@ -28,11 +28,6 @@ const AboutMe = () => {
               contributing to the project's success.
             </Typography> */}
             <Typography component="p" variant="body1">
-              I've been working in web and mobile development for at least two
-              years. Currently I course the 9th grade of system engineering.
-            </Typography>
-            <br />
-            <Typography component="p" variant="body1">
               As a seasoned developer, I bring a wealth of experience
               participating in the development of a diverse array of projects.
               From crafting intuitive intranets to optimizing e-commerce
