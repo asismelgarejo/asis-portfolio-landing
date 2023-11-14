@@ -50,7 +50,8 @@ export const WORK_EXPERIENCES: WorkExperience[] = [
       role: ["Full Stack Developer"],
       startDate: new Date(2023, 3, 15),
       // endDate: new Date(),
-      description: "",
+      description:
+        "Creation of new REST and socket API endpoints using existing SQL Server Stored procedures and MongoDB. Refactorization of existing codebase with clean code and dependency injection patterns. Integration of existing back-end endpoints using React. Adding offline functionality for a react-based PWA.Refactorization of existing code base using clean code principles.",
     },
     company: {
       _id: uuidv4(),
@@ -59,8 +60,7 @@ export const WORK_EXPERIENCES: WorkExperience[] = [
         alt: "",
       },
       name: "Cobra Perú",
-      website:
-        "Creation of new REST and socket API endpoints using existing SQL Server Stored procedures and MongoDB. Refactorization of existing codebase with clean code and dependency injection patterns. Integration of existing back-end endpoints using React. Adding offline functionality for a react-based PWA.Refactorization of existing code base using clean code principles.",
+      website: "",
     },
   },
   // {
