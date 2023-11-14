@@ -33,12 +33,17 @@ const AboutMe = () => {
             </Typography>
             <br />
             <Typography component="p" variant="body1">
-              During my experience I've learned a lot of things, both technicals
-              and no technicals. Some important tech skills about apps
-              development I have are testing, design patterns, data structures,
-              app deployment, CI/CD, control versioning, for naming a few. And
-              some no technical skills I have are work team, responsability,
-              punctuality in deliverables, goals driven, also for naming a few.
+              As a seasoned developer, I bring a wealth of experience
+              participating in the development of a diverse array of projects.
+              From crafting intuitive intranets to optimizing e-commerce
+              platforms, designing engaging landing pages, and contributing to
+              the robust functionality of ERPs, my journey has been marked by
+              versatility and a commitment to delivering impactful solutions.
+              With a proven track record across various domains, I thrive on
+              tackling challenges and bringing innovative ideas to life. My
+              passion lies in creating seamless, user-centric experiences that
+              make a lasting impact. Ready to contribute my skills and expertise
+              to new and exciting ventures.
             </Typography>
           </Box>
         </Box>
