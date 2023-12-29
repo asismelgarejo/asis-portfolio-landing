@@ -88,7 +88,7 @@ export const Home = () => {
         </Typography>
         {showText && (
           <Typography component="p" variant="h5">
-            I'm a software engineer specialized in web and mobile development
+            I'm a software engineer specialized in web development
             from Peru 🇵🇪.
           </Typography>
         )}

@@ -7,5 +7,6 @@ export interface Project {
   repo: string;
   demo: string;
   image: Image;
+  disabled?: boolean;
   _id: string;
 }

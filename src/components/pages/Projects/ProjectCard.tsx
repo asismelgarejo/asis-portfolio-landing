@@ -42,7 +42,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             flexWrap: "wrap",
             display: "flex",
             flexDirection: "row",
-            justifyContent: "space-between"
+            justifyContent: "space-between",
           }}
         >
           {project.tags.map((t, idx) => (
@@ -81,6 +81,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             component="a"
             target="_blank"
             href={project.repo}
+            disabled={project?.disabled}
           >
             Repo
           </Button>

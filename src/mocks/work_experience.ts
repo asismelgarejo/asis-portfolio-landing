@@ -49,7 +49,7 @@ export const WORK_EXPERIENCES: WorkExperience[] = [
       _id: uuidv4(),
       role: ["Full Stack Developer"],
       startDate: new Date(2023, 3, 15),
-      // endDate: new Date(),
+      endDate: new Date(2023, 11, 1),
       description:
         "Creation of new REST and socket API endpoints using existing SQL Server Stored procedures and MongoDB. Refactorization of existing codebase with clean code and dependency injection patterns. Integration of existing back-end endpoints using React. Adding offline functionality for a react-based PWA.Refactorization of existing code base using clean code principles.",
     },
@@ -63,24 +63,4 @@ export const WORK_EXPERIENCES: WorkExperience[] = [
       website: "",
     },
   },
-  // {
-  //   _id: uuidv4(),
-  //   job: {
-  //     _id: uuidv4(),
-  //     role: ["Software Engineer"],
-  //     startDate: new Date(),
-  //     endDate: new Date(),
-  //     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-  //         eiusmod tempor incididunt.`,
-  //   },
-  //   company: {
-  //     _id: uuidv4(),
-  //     image: {
-  //       url: "/exp/crunchyroll.png",
-  //       alt: ""
-  //     },
-  //     name: "Crunchyroll",
-  //     website: "",
-  //   },
-  // },
 ];
